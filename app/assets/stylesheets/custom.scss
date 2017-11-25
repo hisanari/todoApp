@@ -51,6 +51,7 @@ p {
   line-height: 1.7em;
 }
 
+
 // header
 
 #logo {
@@ -63,7 +64,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #fff;
+    color: $light-gray;
     text-decoration: none;
   }
 }
