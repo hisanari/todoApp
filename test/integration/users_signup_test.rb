@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserSignupTest < ActionDispatch::IntegrationTest
+class UsersSignupTest < ActionDispatch::IntegrationTest
   include Warden::Test::Helpers
 
   test 'ユーザー登録失敗' do
@@ -29,6 +29,6 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       }
     end
     follow_redirect!
-    assert_template 'static_pages/home'
+    assert_template 'users/show'
   end
 end
