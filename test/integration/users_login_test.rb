@@ -1,27 +1,23 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
+  include Warden::Test::Helpers
 
   def setup
     @user = users(:john)
   end
 
   test 'ログイン失敗' do
-    get new_user_session_path
-    assert_template 'devise/sessions/new'
-    post user_session_path, params: {
-      session: {
-        email: '',
-        password: ''
-      }
-    }
-    assert_not flash.empty?
-    get new_user_session_path
-    assert flash.empty?
+    visit new_user_session_path
+    fill_in 'user_email', with: ''
+    fill_in 'user_password', with: ''
+    find('input[name="commit"]').click
+    assert page.has_content?('メールアドレスかパスワードが違います。')
+    visit new_user_session_path
+    assert_not page.has_content?('メールアドレスかパスワードが違います。')
   end
 
-  test 'ログイン成功' do
+  test 'ログイン、ログアウトできる' do
     visit new_user_session_path
     email = @user.email
     fill_in 'user_email', with: email
@@ -30,9 +26,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?('ログインしました。')
     visit users_path
     assert_not page.has_content?('ログインしました。')
+    click_on 'ログアウト'
+    assert page.has_content?('ログアウトしました。')
   end
 
-  test 'ログインしないでユーザーページ' do
+  test 'ログインしないでユーザーページにアクセスできない' do
     visit users_path
     assert page.has_content?('続けるには、ログインまたは登録（サインアップ）が必要です。')
   end
