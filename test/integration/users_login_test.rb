@@ -30,7 +30,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?('ログアウトしました。')
   end
 
-  test 'ログインしないでユーザーページにアクセスできない' do
+  test 'ログイン前にユーザーページにはアクセスできない' do
     visit users_path
     assert page.has_content?('続けるには、ログインまたは登録（サインアップ）が必要です。')
   end
