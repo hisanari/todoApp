@@ -25,6 +25,10 @@ textarea {
   resize: vertical;
 }
 
+i {
+  font-style: normal;
+}
+
 .center {
   text-align: center;
   .h1 {
@@ -55,10 +59,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2.1em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: normal;
+  color: $light-gray;
+}
+
+h3 {
+  font-size: 1.4em;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
   font-weight: normal;
   color: $light-gray;
 }
