@@ -45,4 +45,15 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal email, @user.email
   end
+
+  test 'ユーザー情報削除' do
+    sign_in @user
+    get edit_user_registration_path
+    assert_response :success
+    assert_difference 'User.count', -1 do
+      delete user_registration_path
+    end
+    follow_redirect!
+    assert_template 'static_pages/home'
+  end
 end
