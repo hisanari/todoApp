@@ -14,7 +14,7 @@ $background-color: #F5F5F5;
 // 共通
 body {
   background-color: $background-color;
-  padding-top: 60px;
+  // padding-top: 60px;
 }
 
 section {
@@ -87,28 +87,34 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #383838;
+  color: gray;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $light-gray;
+    color: #383838;
     text-decoration: none;
+  }
+  img {
+    height: 50px;
+    width: auto;
   }
 }
 
 .navbar {
   background-color: $background-color;
   border-bottom: 1px solid #B7B7B7;
+
 }
 
 // footer
 
 footer {
+  background-color: $background-color;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid pink;
+  border-top: 1px solid $light-gray;
   color: $light-gray;
   a {
     color: #555;

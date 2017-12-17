@@ -1,16 +1,29 @@
-<header class="navbar navbar-fixed-top">
-  <div class="container">
-    <%= link_to "やることリスト", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ホーム",   root_path %></li>
-        <li><%= link_to "ヘルプ",   help_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'やることリスト',root_path, id: "logo" %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="top-nav">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "ユーザーページ", users_path %></li>
+            <li><%= link_to "ユーザー編集", edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "ホーム",   root_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
 </header>
