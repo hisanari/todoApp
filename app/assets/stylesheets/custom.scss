@@ -13,13 +13,9 @@ $height-footer: 30px;
 
 
 // 共通
-html {
-  min-height: 100%;
-  position: relative;
-}
+
 body {
   background-color: $background-color;
-  margin-bottom: $height-footer;
 }
 
 section {
