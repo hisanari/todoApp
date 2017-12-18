@@ -3,6 +3,7 @@
 
 $light-gray: #777;
 $background-color: #F5F5F5;
+$height-footer: 30px;
 // mixin
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -12,9 +13,13 @@ $background-color: #F5F5F5;
 
 
 // 共通
+html {
+  min-height: 100%;
+  position: relative;
+}
 body {
   background-color: $background-color;
-  // padding-top: 60px;
+  margin-bottom: $height-footer;
 }
 
 section {
@@ -109,17 +114,15 @@ p {
 }
 
 // footer
-
 footer {
-  background-color: $background-color;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $light-gray;
-  color: $light-gray;
+  border-top: 1px solid #eaeaea;
+  color: #777;
   a {
     color: #555;
     &:hover {
-      color: left;
+      color: #222;
     }
   }
   small {
