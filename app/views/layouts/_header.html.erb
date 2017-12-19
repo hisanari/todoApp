@@ -13,8 +13,8 @@
       <div class="collapse navbar-collapse" id="top-nav">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><%= link_to "ユーザーページ", users_path %></li>
-            <li><%= link_to "ユーザー編集", edit_user_registration_path %></li>
+            <li><%= link_to "ユーザートップ", users_path %></li>
+            <li><%= link_to "ユーザー情報編集", edit_user_registration_path %></li>
             <li class="divider"></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <% else %>

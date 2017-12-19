@@ -1,4 +1,24 @@
-<%= render 'devise/shared/error_messages' %>
-<h2><%= @current_user.email %></h2>
-<p>前回ログイン日時: <%= @current_user.last_sign_in_at %></p>
-<p>ログイン回数: <%= @current_user.sign_in_count %>回</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <h3><%= @current_user.email %></h3>
+    </div>
+
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled components">
+      <p>メニュー</p>
+      <li><%= link_to "タスクリスト一覧", '#' %></li>
+      <li><%= link_to "タスクリスト追加", '#' %></li>
+    </ul>
+    <ul class="list-unstyled">
+      <li>前回ログイン日時: <%= @current_user.last_sign_in_at %></li>
+      <li>ログイン回数: <%= @current_user.sign_in_count %>回</li>
+    </ul>
+  </nav>
+  <!-- Content -->
+  <div id="content">
+    <%= render 'devise/shared/error_messages' %>
+  </div>
+</div>
