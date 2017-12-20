@@ -1,24 +1,23 @@
-<div class="wrapper">
-  <!-- Sidebar -->
-  <nav id="sidebar">
-    <!-- Sidebar Header -->
-    <div class="sidebar-header">
-      <h3><%= @current_user.email %></h3>
-    </div>
+<% provide(:title, @current_user.email)%>
+<%= render 'devise/shared/error_messages' %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @current_user.email %>
+      </h1>
+      <ul>
+        <h2>menu</h2>
+        <li><%= link_to 'タスクリスト一覧', '#' %></li>
+        <li><%= link_to 'タスクリスト作成', '#' %></li>
+        <li><%= link_to 'すべてのTodo一覧', '#' %></li>
+        <li><%= link_to '未完了TODO一覧', '#' %></li>
+        <li><%= link_to '完了済TODO一覧', '#' %></li>
+        <li><%= link_to '期限切れTODO一覧', '#' %></li>
+      </ul>
+    </section>
+  </aside>
+  <div class="col-md-8">
 
-    <!-- Sidebar Links -->
-    <ul class="list-unstyled components">
-      <p>メニュー</p>
-      <li><%= link_to "タスクリスト一覧", '#' %></li>
-      <li><%= link_to "タスクリスト追加", '#' %></li>
-    </ul>
-    <ul class="list-unstyled">
-      <li>前回ログイン日時: <%= @current_user.last_sign_in_at %></li>
-      <li>ログイン回数: <%= @current_user.sign_in_count %>回</li>
-    </ul>
-  </nav>
-  <!-- Content -->
-  <div id="content">
-    <%= render 'devise/shared/error_messages' %>
   </div>
 </div>
