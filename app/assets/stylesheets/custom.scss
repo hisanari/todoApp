@@ -64,7 +64,6 @@ h2 {
   font-size: 1.8em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
   color: $light-gray;
 }
@@ -94,13 +93,13 @@ a, a:hover, a:focus {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: gray;
+  color: #363947;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #383838;
+    color: $light-gray;
     text-decoration: none;
   }
   img {
@@ -112,7 +111,6 @@ a, a:hover, a:focus {
 .navbar {
   background-color: $background-color;
   border-bottom: 1px solid #B7B7B7;
-
 }
 
 // footer
@@ -143,6 +141,7 @@ footer {
 // sidebar
 aside {
   section.user_info {
+    padding-right: 10px;
     margin-top: 20px;
   }
   section {
@@ -174,9 +173,9 @@ aside {
       padding-left: 0px;
       li {
         color: #fff;
-        background: #4169e1;
+        background: #93B8CA;
         margin-bottom: 10px;
-        box-shadow: 4px 2px 1px rgba(0,0,0,0.7);
+        box-shadow: 2px 2px 1px rgba(0,0,0,0.3);
         border-radius: 3px;
         span {
           margin-right: 3px;
@@ -186,9 +185,13 @@ aside {
         display: block;
         padding: 10px 10px;
         transition: 0.5s linear;
+        border-radius: 3px;
+
         &:hover {
-          background: #191970;
+          color: #fff;
+          background: #33BFDB;
           transition: 0.4s linear;
+          border-radius: 3px;
         }
       }
     }
@@ -229,4 +232,28 @@ aside {
 .btn-downy {
   color: #F5F5F5;
   background-color: #93B8CA;
+}
+
+
+//タスクリスト
+
+.task_list {
+  h2 {
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+
+.panel-default > .panel-heading {
+  background-color: #aaf5b8;
+}
+
+.panel-footer {
+  background-color: #fff;
+  border-top: 0;
+}
+
+// ユーザーページ右カラム
+.extra_info {
+  margin-top: 95px;
 }

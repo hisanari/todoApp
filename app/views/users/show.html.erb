@@ -15,9 +15,35 @@
         <li><%= link_to '完了済TODO一覧', '#' %></li>
         <li><%= link_to '期限切れTODO一覧', '#' %></li>
       </ul>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        前回ログイン日時: <%= @current_user.last_sign_in_at %>
+      </div>
+  </div>
     </section>
   </aside>
-  <div class="col-md-8">
-
+  <div class="col-md-5">
+    <div class="task_list">
+    <h2>Task List</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+        <div class="panel-footer">Panel footer</div>
+      </div>
+    </div>
+    <!-- task_list -->
+  </div>
+  <div class="col-md-3">
+    <div class="extra_info">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          最近のTODOとか
+        </div>
+    </div>
+    </div>
   </div>
 </div>
