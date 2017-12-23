@@ -4,13 +4,13 @@
 $light-gray: #777;
 $background-color: #FAFAFA;
 $height-footer: 30px;
+
 // mixin
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
-
 
 // 共通
 
@@ -29,6 +29,11 @@ textarea {
 
 i {
   font-style: normal;
+}
+
+span {
+  display: inline-block;
+  padding-right: 15px;
 }
 
 .center {
@@ -184,7 +189,7 @@ aside {
       }
       a {
         display: block;
-        padding: 10px 10px;
+        padding: 15px;
         transition: 0.5s linear;
         border-radius: 3px;
 
@@ -201,9 +206,13 @@ aside {
 
 @media screen and (max-width:992px) {
   aside {
-    ul {
-      li {
-        text-align: center;
+    text-align: center;
+    section {
+      ul {
+        width: auto;
+        li {
+          text-align: left;
+        }
       }
     }
   }

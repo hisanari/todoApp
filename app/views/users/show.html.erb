@@ -1,19 +1,43 @@
 <% provide(:title, @current_user.email)%>
 <%= render 'devise/shared/error_messages' %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3">
     <section class="user_info">
       <h1>
         <%= @current_user.email %>
       </h1>
       <ul>
-        <h2>menu</h2>
-        <li><%= link_to 'タスクリスト一覧', '#' %></li>
-        <li><%= link_to 'タスクリスト作成', '#' %></li>
-        <li><%= link_to 'すべてのTodo一覧', '#' %></li>
-        <li><%= link_to '未完了TODO一覧', '#' %></li>
-        <li><%= link_to '完了済TODO一覧', '#' %></li>
-        <li><%= link_to '期限切れTODO一覧', '#' %></li>
+        <h2>Menu</h2>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>タスクリスト一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>タスクリスト作成
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-list-alt"></span>Todoをすべて見る
+          <% end%>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-list-alt"></span>まだ完了していないTodo
+          <% end%>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-list-alt"></span>完了しているTodo
+          <% end%>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-list-alt"></span>リミットを過ぎてしまったTodo
+          <% end%>
+        </li>
       </ul>
     <div class="panel panel-default">
       <div class="panel-body">
@@ -22,26 +46,36 @@
   </div>
     </section>
   </aside>
-  <div class="col-md-5">
+  <div class="col-md-6">
     <div class="task_list">
-    <h2>Task List</h2>
+    <h2>タスクリスト</h2>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
+          <h3 class="panel-title">タイトル</h3>
         </div>
         <div class="panel-body">
           Panel content
         </div>
-        <div class="panel-footer">Panel footer</div>
+        <div class="panel-footer">
+          <button type="button" name="button" class="btn btn-danger">削除</button>
+          <button type="button" name="button" class="btn btn-primary">todoを見る</button>
+        </div>
       </div>
     </div>
     <!-- task_list -->
   </div>
   <div class="col-md-3">
     <div class="extra_info">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          最近のTODOとか
+      <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">最近、追加したTodo</div>
+              <div class="panel-body">
+                <ul>
+                  <li>テスト　期限：2017/12/31</li>
+                  <li>テスト　期限：2017/12/31</li>
+                  <li>テスト　期限：2017/12/31</li>
+                </ul>
+              </div>
         </div>
     </div>
     </div>
