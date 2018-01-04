@@ -1,80 +1,66 @@
-<% provide(:title, @current_user.email)%>
+<% provide(:title, current_user.email)%>
 <%= render 'devise/shared/error_messages' %>
 <div class="row">
   <aside class="col-md-3">
-    <section class="user_info">
-      <h1>
-        <%= @current_user.email %>
-      </h1>
-      <ul>
-        <h2>Menu</h2>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>タスクリスト一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>タスクリスト作成
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-list-alt"></span>Todoをすべて見る
-          <% end%>
-        </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-list-alt"></span>まだ完了していないTodo
-          <% end%>
-        </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-list-alt"></span>完了しているTodo
-          <% end%>
-        </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-list-alt"></span>リミットを過ぎてしまったTodo
-          <% end%>
-        </li>
-      </ul>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        前回ログイン日時: <%= @current_user.last_sign_in_at %>
-      </div>
-  </div>
-    </section>
+    <%= render 'layouts/user_info' %>
   </aside>
   <div class="col-md-6">
     <div class="task_list">
-    <h2>タスクリスト</h2>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">タイトル</h3>
+      <h2>タスクリスト</h2>
+      <% if @all_tasklists.any? %>
+        <% @all_tasklists.each do |tasklist| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-8">
+                  <h3 class="panel-title"><%= tasklist.title %></h3>
+                </div>
+                <div class="col-xs-4">
+                  <div class="text-right">(全10件中8件完了)</div>
+                </div>
+              </div>
+          </div>
+          <div class="panel-body">
+            <p>もっとも早いToDoはーーーーです。(2018/1/4まで)</p>
+            <p>作成日時: <time><%= tasklist.created_at %></time></p>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-8">
+                <button type="button" name="button" class="btn btn-block btn-task">todoを見る</button>
+              </div>
+              <div class="col-xs-4">
+                <button type="button" name="button" class="btn btn-block btn-task-del">削除</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-        <div class="panel-footer">
-          <button type="button" name="button" class="btn btn-danger">削除</button>
-          <button type="button" name="button" class="btn btn-primary">todoを見る</button>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
     <!-- task_list -->
   </div>
   <div class="col-md-3">
     <div class="extra_info">
-      <div class="panel panel-info">
+      <h3>新しいタスクリストを追加する    </h3>
+      <%= form_for @new_tasklist do |form| %>
+        <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, placeholder: "タスクリスト名を入力", class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= form.submit "作成する", class: "btn btn-block btn-primary" %>
+        </div>
+      <% end %>
+      <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title">最近、追加したTodo</div>
-        <ul class="list-group">
-          <li class="list-group-item">テスト　期限：2017/12/31</li>
-          <li class="list-group-item">テスト　期限：2017/12/31</li>
-          <li class="list-group-item">テスト　期限：2017/12/31</li>
-        </ul>
-      </div>
+          <h3 class="panel-title">最近、追加したTodo</div>
+          <ul class="list-group">
+            <li class="list-group-item">テスト　期限：2017/12/31</li>
+            <li class="list-group-item">テスト　期限：2017/12/31</li>
+            <li class="list-group-item">テスト　期限：2017/12/31</li>
+          </ul>
+        </div>
     </div>
   </div>
   </div>

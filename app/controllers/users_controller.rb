@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @current_user = current_user
+    @all_tasklists = current_user.task_lists.all
+    @new_tasklist = current_user.task_lists.build
   end
 end

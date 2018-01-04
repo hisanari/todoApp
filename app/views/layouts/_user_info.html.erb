@@ -1,0 +1,38 @@
+<section class="user_info">
+  <h1>
+    <%= current_user.email %>
+  </h1>
+  <ul>
+    <h2>Menu</h2>
+    <li>
+      <%= link_to '#' do %>
+        <span class="glyphicon glyphicon-list"></span>タスクリスト一覧
+      <% end %>
+    </li>
+    <li>
+      <%= link_to '#' do %>
+        <span class="glyphicon glyphicon-list-alt"></span>Todoをすべて見る
+      <% end%>
+    </li>
+    <li>
+      <%= link_to '#' do %>
+        <span class="glyphicon glyphicon-list-alt"></span>まだ完了していないTodo
+      <% end%>
+    </li>
+    <li>
+      <%= link_to '#' do %>
+        <span class="glyphicon glyphicon-list-alt"></span>完了しているTodo
+      <% end%>
+    </li>
+    <li>
+      <%= link_to '#' do %>
+        <span class="glyphicon glyphicon-flash"></span>リミットを過ぎてしまったTodo
+      <% end%>
+    </li>
+  </ul>
+<div class="panel panel-default">
+  <div class="panel-body">
+    前回ログイン日時: <%= current_user.last_sign_in_at %>
+  </div>
+</div>
+</section>

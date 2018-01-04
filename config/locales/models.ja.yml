@@ -7,3 +7,5 @@ ja:
         password_confirmation: 確認用パスワード
         current_password: 現在のパスワード
         remember_me: 次回から自動的にログイン
+      task_list:
+        title: タスクリスト名

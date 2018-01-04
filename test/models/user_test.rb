@@ -24,4 +24,12 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_not duplicate_user.valid?
   end
+
+  test 'ユーザー削除時に、関連するタスクリストも削除される' do
+    @user.save
+    @tasklist = @user.task_lists.create!(title: 'foobar')
+    assert_difference 'TaskList.count', -1 do
+      @user.destroy
+    end
+  end
 end

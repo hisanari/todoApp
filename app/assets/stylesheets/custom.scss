@@ -179,7 +179,7 @@ aside {
       padding-left: 0px;
       li {
         color: #fff;
-        background: #93B8CA;
+        background: #6183da;
         margin-bottom: 10px;
         box-shadow: 2px 2px 1px rgba(0,0,0,0.3);
         border-radius: 3px;
@@ -195,7 +195,7 @@ aside {
 
         &:hover {
           color: #fff;
-          background: #33BFDB;
+          background: #3c379f;
           transition: 0.4s linear;
           border-radius: 3px;
         }
@@ -253,16 +253,41 @@ aside {
     margin-top: 60px;
     margin-bottom: 10px;
   }
+  .panel-heading {
+    color: #ffffff;
+  }
+  .btn-task {
+    border: solid 1px #cbcbcb;
+    transition: 0.3s linear;
+    border-radius: 3px;
+    &:hover {
+      border: none;
+      color: #fff;
+      background: #54a0e6;
+      transition: 0.3s linear;
+    }
+  }
+  .btn-task-del {
+    background: #fff;
+    border: solid 1px #ff2929;
+    transition: 0.3s linear;
+    &:hover {
+      color: #fff;
+      background: #ff2929;
+      transition: 0.3s linear;
+    }
+  }
+  .panel-default > .panel-heading {
+    background-color: #8c8c8c;
+  }
+
+  .panel-footer {
+    background-color: #fff;
+    border-top: 0;
+  }
 }
 
-.panel-default > .panel-heading {
-  background-color: #aaf5b8;
-}
 
-.panel-footer {
-  background-color: #fff;
-  border-top: 0;
-}
 
 // ユーザーページ右カラム
 .extra_info {
