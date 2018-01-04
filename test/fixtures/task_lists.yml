@@ -1,1 +1,9 @@
+shukudai:
+  title: "国語"
+  created_at: <%= 10.minutes.ago %>
+  user: john
 
+kaji:
+  title: "洗濯"
+  created_at: <%= 3.days.ago %>
+  user: john

@@ -7,9 +7,9 @@
   <div class="col-md-6">
     <div class="task_list">
       <h2>タスクリスト</h2>
-      <% if @all_tasklists.any? %>
-        <% @all_tasklists.each do |tasklist| %>
-        <div class="panel panel-default">
+      <% if @tasklists.any? %>
+        <% @tasklists.each do |tasklist| %>
+        <div id="<%= tasklist.id %>" class="panel panel-default">
           <div class="panel-heading">
               <div class="row">
                 <div class="col-xs-8">
@@ -30,19 +30,29 @@
                 <button type="button" name="button" class="btn btn-block btn-task">todoを見る</button>
               </div>
               <div class="col-xs-4">
-                <button type="button" name="button" class="btn btn-block btn-task-del">削除</button>
+                <%= link_to "delete", task_list_path(tasklist.id), method: :delete, class: "btn btn-block btn-danger", data: { confirm: "削除していいですか？"} %>
               </div>
             </div>
           </div>
         </div>
         <% end %>
+      <% else %>
+        <p>まだタスクリストは登録されていません</p>
       <% end %>
     </div>
     <!-- task_list -->
   </div>
   <div class="col-md-3">
     <div class="extra_info">
-      <h3>新しいタスクリストを追加する    </h3>
+      <h2 class="extra-info-title">タスクリストを追加する</h2>
+      <!-- エラーメッセージ -->
+      <% if @new_tasklist.errors.any? %>
+      <div id="error_explanation">
+        <% @new_tasklist.errors.full_messages.each do |message| %>
+        <strong><%= message %></strong>
+      </div>
+      <% end %>
+      <% end %>
       <%= form_for @new_tasklist do |form| %>
         <div class="form-group">
         <%= form.label :title %>
@@ -52,6 +62,7 @@
         <%= form.submit "作成する", class: "btn btn-block btn-primary" %>
         </div>
       <% end %>
+      <h2>最近</h2>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">最近、追加したTodo</div>

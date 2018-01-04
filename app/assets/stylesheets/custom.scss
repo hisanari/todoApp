@@ -218,6 +218,22 @@ aside {
   }
 }
 
+// 右カラム
+.extra_info {
+  h2 {
+    font-size: 1.4em;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
+  .extra-info-title {
+    font-size: 1.6em;
+    text-align: left;
+    margin-top: -35px;
+    margin-bottom: 10px;
+  }
+}
+
 // エラーメッセージ
 
 #error_explanation {

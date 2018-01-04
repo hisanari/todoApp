@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/help',    to: 'static_pages#help'
   get '/contact', to: 'static_pages#contact'
   devise_for :users, controllers: { registrations: :registrations }
-  resource :users,      only: %i[show]
-  resource :task_lists, only: %i[new create destroy]
+  resource :users, only: %i[show]
+  resources :task_lists, only: %i[new create destroy]
 end
