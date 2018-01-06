@@ -30,4 +30,9 @@ class TaskListTest < ActiveSupport::TestCase
     @tasklist.save
     assert_not dup_task.valid?
   end
+
+  test 'タスクリストが作成順に呼び出せる' do
+    ordered_tasklist = @user.task_lists.all.created_latest_order
+    assert_equal @user.task_lists.all.order('created_at DESC'), ordered_tasklist
+  end
 end

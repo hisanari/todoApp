@@ -6,7 +6,7 @@ class TaskListsController < ApplicationController
     if @new_tasklist.save
       redirect_to users_path, notice: '新しいタスクリストが作成されました'
     else
-      @tasklists = current_user.task_lists.all
+      @tasklists = current_user.task_lists.created_latest_order
       render 'users/show'
     end
   end
