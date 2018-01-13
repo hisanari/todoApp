@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107113220) do
+ActiveRecord::Schema.define(version: 20180113014628) do
 
   create_table "task_lists", force: :cascade do |t|
     t.string "title", null: false
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20180107113220) do
 
   create_table "todos", force: :cascade do |t|
     t.string "item", null: false
-    t.date "limit", null: false
+    t.date "todo_limit", null: false
     t.integer "status", default: 0, null: false
     t.integer "task_list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["task_list_id", "limit", "status"], name: "index_todos_on_task_list_id_and_limit_and_status"
+    t.index ["task_list_id", "todo_limit", "status"], name: "index_todos_on_task_list_id_and_todo_limit_and_status"
     t.index ["task_list_id"], name: "index_todos_on_task_list_id"
   end
 

@@ -15,7 +15,7 @@ class TodoTest < ActiveSupport::TestCase
   end
 
   test 'limitが無いと失敗する' do
-    @todo.limit = nil
+    @todo.todo_limit = nil
     assert_not @todo.valid?
   end
 

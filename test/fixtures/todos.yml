@@ -2,12 +2,12 @@
 
 math:
   item: 数学
-  limit: 2018-01-07
+  todo_limit: <%= Time.now.tomorrow %>
   status: 0
   task_list: shukudai
 
 sentaku:
   item: 洗濯
-  limit: 2018-01-06
-  status: 3
+  todo_limit: <%= Time.now.yesterday %>
+  status: 2
   task_list: kaji

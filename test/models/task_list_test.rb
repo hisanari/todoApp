@@ -32,7 +32,7 @@ class TaskListTest < ActiveSupport::TestCase
   end
 
   test 'タスクリストが作成順に呼び出せる' do
-    ordered_tasklist = @user.task_lists.all.created_latest_order
+    ordered_tasklist = @user.task_lists.all.created_latest
     assert_equal @user.task_lists.all.order('created_at DESC'), ordered_tasklist
   end
 end

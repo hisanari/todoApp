@@ -5,7 +5,7 @@
   <ul>
     <h2>メニュー</h2>
     <li>
-      <%= link_to '#' do %>
+      <%= link_to users_path do %>
         <span class="glyphicon glyphicon-list"></span>タスクリスト一覧
       <% end %>
     </li>
@@ -32,7 +32,7 @@
   </ul>
 <div class="panel panel-default">
   <div class="panel-body">
-    前回ログイン日時: <%= current_user.last_sign_in_at %>
+    前回ログイン日時:<%= current_user.last_sign_in_at %>
   </div>
 </div>
 </section>

@@ -9,3 +9,5 @@ ja:
         remember_me: 次回から自動的にログイン
       task_list:
         title: タスクリスト名
+      todo:
+        todo_limit: 期限

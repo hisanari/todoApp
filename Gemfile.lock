@@ -97,6 +97,7 @@ GEM
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    hirb (0.7.3)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -164,6 +165,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.4)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -243,6 +247,7 @@ DEPENDENCIES
   faker
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
+  hirb
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.1)
   listen (>= 3.0.5, < 3.2)
@@ -251,6 +256,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (= 5.1.4)
   rails-controller-testing (= 1.0.2)
+  rails-i18n
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
