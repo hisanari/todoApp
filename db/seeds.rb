@@ -5,7 +5,7 @@ User.create!(
   password_confirmation: 'foobar'
 )
 # タスクリスト
-3.times do |i|
+4.times do |i|
   title = "タスクリスト_#{i}"
   TaskList.create!(
     title: title,

@@ -10,4 +10,5 @@ ja:
       task_list:
         title: タスクリスト名
       todo:
+        item: やること
         todo_limit: 期限

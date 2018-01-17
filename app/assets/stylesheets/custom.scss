@@ -261,9 +261,9 @@ aside {
 }
 
 
-//タスクリスト
+//　センターカラム
 
-.task_list {
+.center_column {
   h2 {
     text-align: left;
     margin-top: 60px;
@@ -303,6 +303,45 @@ aside {
   }
 }
 
+.todos {
+  h2 {
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+  .panel-heading {
+    color: #ffffff;
+  }
+  .btn-task {
+    border: solid 1px #cbcbcb;
+    transition: 0.3s linear;
+    border-radius: 3px;
+    &:hover {
+      border: none;
+      color: #fff;
+      background: #54a0e6;
+      transition: 0.3s linear;
+    }
+  }
+  .btn-task-del {
+    background: #fff;
+    border: solid 1px #ff2929;
+    transition: 0.3s linear;
+    &:hover {
+      color: #fff;
+      background: #ff2929;
+      transition: 0.3s linear;
+    }
+  }
+  .panel-default > .panel-heading {
+    background-color: #8c8c8c;
+  }
+
+  .panel-footer {
+    background-color: #fff;
+    border-top: 0;
+  }
+}
 
 
 // ユーザーページ右カラム

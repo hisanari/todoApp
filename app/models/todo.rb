@@ -7,8 +7,8 @@ class Todo < ApplicationRecord
 
   enum status: { before_work: 0, done: 1, expired: 2 }
 
-  scope :search_todo, ->(task_list_id) { where(task_list_id: task_list_id) }
   scope :search_before_work, -> { where(status: 0) }
   scope :search_done, -> { where(status: 1) }
+  scope :search_expired, -> { where(status: 2) }
   scope :fast_todo, -> { order(:todo_limit).first }
 end
