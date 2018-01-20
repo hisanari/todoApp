@@ -9,7 +9,7 @@ class TodosTest < ActionDispatch::IntegrationTest
     @math = todos(:math)
   end
 
-  test 'ログインからtodoの一覧表示、作成、削除' do
+  test 'ログインからtodoの一覧表示、作成、更新、削除' do
     # ログインする
     sign_in @user
     visit users_path
@@ -33,6 +33,17 @@ class TodosTest < ActionDispatch::IntegrationTest
     find('input[name="commit"]').click
     assert page.has_content? '新しいTodoが作成されました。'
     assert page.has_content? new_todo
+    # Todoを完了、未完了にできる
+    within find("#todo-#{@math.id}") do
+      click_link '完了にする'
+    end
+    assert page.has_content? '完了しています'
+    assert page.has_content? '未完了にする'
+    within find("#todo-#{@math.id}") do
+      click_link '未完了にする'
+    end
+    assert page.has_content? 'まだ完了していません'
+    assert page.has_content? '完了にする'
     # Todoを削除する
     click_on '削除する', match: :first
     assert page.has_content? '削除しました。'

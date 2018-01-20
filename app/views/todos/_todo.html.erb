@@ -1,14 +1,14 @@
-<div id="<%= todo.id %>" class="panel panel-default">
+<div id="todo-<%= todo.id %>" class="panel panel-default">
   <div class="panel-body">
     <h3 class="h2"><%= todo.item %></h3>
-    <p><%= todo_status todo.status %></p>
+    <p><%= todo_status todo %></p>
     期限: <time><%= todo.todo_limit %></time>
     作成日時: <time><%= todo.created_at %></time>
   </div>
   <div class="panel-footer">
     <div class="row">
       <div class="col-xs-8">
-          <%= link_to task_list_todo_path(todo.task_list.id, todo.id), method: :patch, class: "btn btn-block btn-success" do %>
+          <%= link_to todos_status_path(todo.id), method: :patch, class: "btn btn-block btn-success", remote: true do %>
             <% button_status todo.status %>
           <% end %>
       </div>

@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :task_lists, only: %i[create destroy] do
     resources :todos, only: %i[index create destroy]
   end
+
+  namespace :todos do
+    resources :status, only: %i[update]
+  end
 end
