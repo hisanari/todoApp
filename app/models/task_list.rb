@@ -1,6 +1,6 @@
 class TaskList < ApplicationRecord
   belongs_to :user
-  has_many :todos
+  has_many :todos, dependent: :destroy
 
   validates :user_id, presence: true
   validates :title,   presence: true, uniqueness: true, length: { maximum: 20 }

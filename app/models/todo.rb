@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-  belongs_to :task_list, dependent: :destroy
+  belongs_to :task_list
 
   validates :item, presence: true, length: { maximum: 20 }
   validates :todo_limit, presence: true
