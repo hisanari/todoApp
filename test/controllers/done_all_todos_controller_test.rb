@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BeforeWorkTodosControllerTest < ActionDispatch::IntegrationTest
+class DoneAllTodosControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
@@ -9,13 +9,13 @@ class BeforeWorkTodosControllerTest < ActionDispatch::IntegrationTest
 
   test '登録しているすべてのやることが表示できる' do
     sign_in @user
-    get before_work_todos_path
+    get done_all_todos_path
     assert_response :success
     assert_template :index
   end
 
   test 'ログインしていないと見れない' do
-    get before_work_todos_path
+    get done_all_todos_path
     assert_redirected_to new_user_session_path
   end
 end
