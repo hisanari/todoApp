@@ -20,5 +20,4 @@ module ApplicationHelper
       '期限切れです。。。。'
     end
   end
-
 end
