@@ -1,0 +1,18 @@
+
+<% provide(:title, current_user.email)%>
+<%= render 'devise/shared/error_messages' %>
+<div class="row">
+  <aside class="col-md-3">
+    <%= render 'layouts/user_info' %>
+  </aside>
+  <div class="col-md-9">
+    <div class="center_column">
+      <h2>すべてのやること</h2>
+      <% if @all_todos.any? %>
+        <%= render 'all_todo', locals: { all_todo: @all_todos } %>
+      <% else %>
+        <p>まだやることは登録されていません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

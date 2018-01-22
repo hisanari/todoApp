@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   namespace :todos do
     resources :status, only: %i[update]
   end
+
+  resources :all_todos, only: %i[index]
 end

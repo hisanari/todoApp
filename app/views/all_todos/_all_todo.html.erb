@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>アイテム名</th>
+      <th>状態</th>
+      <th>期限</th>
+      <th>タスクリスト名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_todos.each do |all_todo| %>
+    <tr class="<%= todo_status_for_css(all_todo) %>">
+      <td><%= all_todo.item %></td>
+      <td><%= all_todo.status %></td>
+      <td><%= all_todo.todo_limit %></td>
+      <td><%= all_todo.task_list.title %></td>
+      <td><%= link_to "タスクリストページヘ", task_list_todos_path(all_todo.task_list.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
