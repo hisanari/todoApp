@@ -4,7 +4,7 @@ module AllTodosHelper
     when 'before_work'
       'primary'
     when 'done'
-      "success"
+      'success'
     when 'expired'
       'warning'
     end

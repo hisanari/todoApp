@@ -11,7 +11,7 @@
     <% @all_todos.each do |all_todo| %>
     <tr class="<%= todo_status_for_css(all_todo) %>">
       <td><%= all_todo.item %></td>
-      <td><%= all_todo.status %></td>
+      <td><%= todo_status(all_todo) %></td>
       <td><%= all_todo.todo_limit %></td>
       <td><%= all_todo.task_list.title %></td>
       <td><%= link_to "タスクリストページヘ", task_list_todos_path(all_todo.task_list.id) %></td>
