@@ -6,9 +6,9 @@
   </aside>
   <div class="col-md-9">
     <div class="center_column">
-      <h2>すべてのやること</h2>
-      <% if @all_todos.any? %>
-        <%= render 'all_todo', locals: { all_todo: @all_todos } %>
+      <h2>まだ完了していないTodo</h2>
+      <% if @before_work_todos.any? %>
+        <%= render 'before_work_todos', locals: { all_todo: @before_work_todos } %>
       <% else %>
         <p>まだやることは登録されていません</p>
       <% end %>

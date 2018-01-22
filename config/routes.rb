@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
 
   resources :all_todos, only: %i[index]
+  resources :before_work_todos, only: %i[index]
 end
