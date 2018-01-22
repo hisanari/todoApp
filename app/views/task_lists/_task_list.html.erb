@@ -10,10 +10,10 @@
       </div>
   </div>
   <div class="panel-body">
-    <% if task_list.todos.any? %>
-      <p>もっとも早いToDoは<%= task_list.todos.fast_todo.item %>です。(<%= task_list.todos.fast_todo.todo_limit %>まで)</p>
+    <% if task_list.todos.any? && task_list.todos.search_before_work.first.present? %>
+      <p>もっとも早いToDoは<%= task_list.todos.search_before_work.first.item %>です。(<%= task_list.todos.search_before_work.first.todo_limit %>まで)</p>
     <% else %>
-      <p>登録されているTodoはありません。</p>
+      <p>表示できるTodoはありません。</p>
     <% end %>
     <p>作成日時: <time><%= task_list.created_at %></time></p>
   </div>

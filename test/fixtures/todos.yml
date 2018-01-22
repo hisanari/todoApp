@@ -8,6 +8,6 @@ math:
 
 sentaku:
   item: 洗濯
-  todo_limit: <%= Time.now.yesterday %>
+  todo_limit: <%= Time.zone.yesterday %>
   status: 2
   task_list: kaji

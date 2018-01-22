@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
+  before_action :todo_limit_update
 
   def index
     @todos = Todo.where(task_list_id: params[:task_list_id]).order(:todo_limit)

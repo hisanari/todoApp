@@ -10,5 +10,4 @@ class Todo < ApplicationRecord
   scope :search_before_work, -> { where(status: 0).order(:todo_limit) }
   scope :search_done, -> { where(status: 1).order(:updated_at) }
   scope :search_expired, -> { where(status: 2) }
-  scope :fast_todo, -> { order(:todo_limit).first }
 end

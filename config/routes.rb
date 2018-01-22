@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :all_todos, only: %i[index]
   resources :before_work_todos, only: %i[index]
   resources :done_all_todos, only: %i[index]
+  resources :expired_all_todos, only: %i[index]
 end

@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>アイテム名</th>
+      <th>期限</th>
+      <th>状態</th>
+      <th>タスクリスト名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expired_todos.each do |todo| %>
+    <tr>
+      <td><%= todo.item %></td>
+      <td><%= todo.todo_limit %></td>
+      <td><%= todo_status(todo) %></td>
+      <td><%= todo.task_list.title %></td>
+      <td><%= link_to "タスクリストページヘ", task_list_todos_path(todo.task_list.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
