@@ -10,7 +10,7 @@
       <% if @done_todos.any? %>
         <%= render 'done_todos', locals: { all_todo: @done_todos } %>
       <% else %>
-        <p>まだやることは登録されていません</p>
+        <p>完了しているTodoはありません</p>
       <% end %>
     </div>
   </div>

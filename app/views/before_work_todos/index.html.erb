@@ -10,7 +10,7 @@
       <% if @before_work_todos.any? %>
         <%= render 'before_work_todos', locals: { all_todo: @before_work_todos } %>
       <% else %>
-        <p>まだやることは登録されていません</p>
+        <p>完了していないTodoはありません。</p>
       <% end %>
     </div>
   </div>
