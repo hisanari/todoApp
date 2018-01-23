@@ -11,7 +11,7 @@
   </div>
   <div class="panel-body">
     <% if task_list.todos.any? && task_list.todos.search_before_work.first.present? %>
-      <p>もっとも早いToDoは<%= task_list.todos.search_before_work.first.item %>です。(<%= task_list.todos.search_before_work.first.todo_limit %>まで)</p>
+      <p>もっとも早いやることは、<%= task_list.todos.search_before_work.first.item %>です。(<%= task_list.todos.search_before_work.first.todo_limit %>まで)</p>
     <% else %>
       <p>表示できるTodoはありません。</p>
     <% end %>
