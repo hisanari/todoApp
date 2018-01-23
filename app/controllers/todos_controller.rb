@@ -4,6 +4,9 @@ class TodosController < ApplicationController
 
   def index
     @todos = Todo.where(task_list_id: params[:task_list_id]).order(:todo_limit)
+    @tasklist_title = current_user.task_lists.find_by(
+      id: params[:task_list_id]
+    ).title
     @new_todo = TaskList.find_by(id: params[:task_list_id]).todos.build
   end
 
