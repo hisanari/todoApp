@@ -6,7 +6,7 @@
     </aside>
     <div class="col-md-6">
       <div class="center_column">
-      <h2><%= @tasklist_title %>のやること</h2>
+      <h2><%= @current_tasklist.title %>のやること</h2>
       <% if @todos.any? %>
         <%= render @todos %>
       <% else %>

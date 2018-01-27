@@ -8,7 +8,7 @@
   <div class="panel-footer">
     <div class="row">
       <div class="col-xs-8">
-          <%= link_to todos_status_path(todo.id), method: :patch, class: "btn btn-block btn-success", remote: true do %>
+          <%= link_to todos_status_path(todo.id), method: :patch, class: "btn btn-block btn-success" do %>
             <% button_status todo.status %>
           <% end %>
       </div>
