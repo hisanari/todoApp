@@ -1,6 +1,6 @@
 # ユーザー
 User.create!(
-  email: 'foobar@exsample.com',
+  email: 'foobar@example.com',
   password: 'foobar',
   password_confirmation: 'foobar'
 )
