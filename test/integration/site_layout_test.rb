@@ -7,10 +7,5 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', root_path
     assert_select 'a[href=?]', new_user_session_path
     assert_select 'a[href=?]', new_user_registration_path
-    assert_select 'a[href=?]', help_path
-    assert_select 'a[href=?]', about_path
-    assert_select 'a[href=?]', contact_path
-    get contact_path
-    assert_select 'title', full_title('Contact')
   end
 end
