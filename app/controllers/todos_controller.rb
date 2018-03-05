@@ -1,6 +1,5 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
-  before_action :todo_limit_update
 
   def index
     set_todos
