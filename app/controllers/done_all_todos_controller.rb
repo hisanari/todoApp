@@ -3,6 +3,6 @@ class DoneAllTodosController < ApplicationController
 
   def index
     tasklist_id = TaskList.where(user_id: current_user.id).ids
-    @done_todos = Todo.where(task_list_id: tasklist_id).search_done
+    @done_todos = Todo.includes(:task_list).where(task_list_id: tasklist_id).search_done
   end
 end

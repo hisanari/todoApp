@@ -31,7 +31,7 @@ class TodosController < ApplicationController
   end
 
   def set_todos
-    @todos = Todo.where(task_list_id: params[:task_list_id]).order(:todo_limit)
+    @todos = Todo.includes(:task_list).where(task_list_id: params[:task_list_id]).order(:todo_limit)
   end
 
   def set_current_tasklist
