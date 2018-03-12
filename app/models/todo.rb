@@ -11,15 +11,4 @@ class Todo < ApplicationRecord
   scope :search_done, -> { where(status: 1).order(:updated_at) }
   scope :search_expired, -> { where(status: 2) }
 
-  # after_find :todo_limit_update
-
-  private
-
-  def todo_limit_update
-    if todo_limit < Time.zone.today && status != 'done'
-      self.status = 'expired'
-      save!
-      puts 'hello'
-    end
-  end
 end
