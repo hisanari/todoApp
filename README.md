@@ -2,7 +2,7 @@
 
 ## Ruby on Railsを使ったWebアプリ
 ### 概要
-シンプルなToDoアプリ
+ToDoアプリ
 
 url https://dry-dawn-72805.herokuapp.com/
 
@@ -11,10 +11,7 @@ url https://dry-dawn-72805.herokuapp.com/
 パスワード  
  foobar
 
-### 使用したgem
-- devise
-- ransack
-- jquery
-- bootstrap-sass
-- faker
-- minitest
+### 特徴
+- ログイン機能(devise)
+- 検索機能(ransack)
+- 定期的に期限切れのチェック(rake task)
