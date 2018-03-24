@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -15,6 +16,7 @@ $height-footer: 30px;
 // 共通
 
 body {
+  font-family: 'Noto Sans Japanese', arial, sans-serif;
   background: $background-color;
   color: #333333;
 }
@@ -22,7 +24,7 @@ body {
 section {
   overflow: auto;
 }
-
+arial, sans-serif
 textarea {
   resize: vertical;
 }
@@ -34,13 +36,6 @@ i {
 span {
   display: inline-block;
   padding-right: 15px;
-}
-
-.center {
-  text-align: center;
-  .h1 {
-    margin-bottom: 10px;
-  }
 }
 
 // その他
@@ -59,32 +54,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+  // font-size: 3em;
+  // letter-spacing: -2px;
+  // margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
   text-align: center;
   font-size: 1.8em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
   font-weight: normal;
   color: $light-gray;
 }
 
 h3 {
   font-size: 1.4em;
-  letter-spacing: -1px;
-  margin-bottom: 10px;
   font-weight: normal;
   color: $light-gray;
 }
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 a, a:hover, a:focus {
@@ -122,31 +112,6 @@ a:hover {
   border-bottom: 1px solid #B7B7B7;
 }
 
-// footer
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-  a {
-    color: #555;
-    &:hover {
-      color: #222;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
-
 // sidebar
 aside {
   section.user_info {
@@ -181,11 +146,7 @@ aside {
       margin-top: 15px;
       padding-left: 0px;
       li {
-        color: #fff;
-        background: #6183da;
         margin-bottom: 10px;
-        box-shadow: 2px 2px 1px rgba(0,0,0,0.3);
-        border-radius: 3px;
         span {
           margin-right: 3px;
         }
@@ -195,13 +156,6 @@ aside {
         padding: 15px;
         transition: 0.5s linear;
         border-radius: 3px;
-
-        &:hover {
-          color: #fff;
-          background: #3c379f;
-          transition: 0.4s linear;
-          border-radius: 3px;
-        }
       }
     }
   }
@@ -251,16 +205,16 @@ aside {
 
 // ジャンボトロン
 
-.jumbotron {
+.jumbotron-extend {
+  text-align: center;
   background-color: $background-color;
 }
 
 
 // ボタン
 
-.btn-downy {
-  color: #F5F5F5;
-  background-color: #93B8CA;
+.btn-bg {
+  background-color: #007cb8;
 }
 
 
@@ -350,4 +304,9 @@ aside {
 // ユーザーページ右カラム
 .extra_info {
   margin-top: 95px;
+}
+
+
+.add-top-margin {
+  margin-top: 50px;
 }
