@@ -6,7 +6,7 @@ module AllTodosHelper
     when 'done'
       'success'
     when 'expired'
-      'warning'
+      'danger'
     end
   end
 end

@@ -1,19 +1,10 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>アイテム名</th>
-      <th>期限</th>
-      <th>タスクリスト名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @before_work_todos.each do |todo| %>
-    <tr>
-      <td><%= todo.item %></td>
-      <td><%= todo.todo_limit %></td>
-      <td><%= todo.task_list.title %></td>
-      <td><%= link_to "タスクリストページヘ", task_list_todos_path(todo.task_list.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @before_work_todos.each do |todo| %>
+<div class="text-<%= todo_status_for_css todo %>">
+  <%= link_to task_list_todos_path(todo.task_list.id) do %>
+  <p class="h3"><%= todo.item %></p>
+  <p><%= todo_status(todo) %></p>
+  <p>期限: <%= todo.todo_limit %></p>
+  <% end %>
+</div>
+<hr>
+<% end %>

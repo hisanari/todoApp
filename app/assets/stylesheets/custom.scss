@@ -54,17 +54,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  // font-size: 3em;
-  // letter-spacing: -2px;
-  // margin-bottom: 30px;
+  letter-spacing: -2px;
   text-align: center;
 }
 
 h2 {
+  letter-spacing: -1.5px;
   text-align: center;
   font-size: 1.8em;
   font-weight: normal;
-  color: $light-gray;
 }
 
 h3 {
@@ -116,11 +114,9 @@ a:hover {
 aside {
   section.user_info {
     padding-right: 10px;
-    margin-top: 20px;
   }
   section {
     padding: 10px 0;
-    margin-top: 20px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -147,6 +143,7 @@ aside {
       padding-left: 0px;
       li {
         margin-bottom: 10px;
+        border-bottom: 1px solid rgb(218, 218, 218);
         span {
           margin-right: 3px;
         }
@@ -154,8 +151,6 @@ aside {
       a {
         display: block;
         padding: 15px;
-        transition: 0.5s linear;
-        border-radius: 3px;
       }
     }
   }
@@ -178,15 +173,14 @@ aside {
 // 右カラム
 .extra_info {
   h2 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-align: left;
-    margin-top: 30px;
     margin-bottom: 5px;
   }
   .extra-info-title {
     font-size: 1.6em;
     text-align: left;
-    margin-top: -28px;
+    margin-top: 27px;
     margin-bottom: 10px;
   }
 }
@@ -223,7 +217,6 @@ aside {
 .center_column {
   h2 {
     text-align: left;
-    margin-top: 60px;
     margin-bottom: 10px;
   }
   .panel-heading {
@@ -263,7 +256,6 @@ aside {
 .todos {
   h2 {
     text-align: left;
-    margin-top: 60px;
     margin-bottom: 10px;
   }
   .panel-heading {
@@ -298,15 +290,4 @@ aside {
     background-color: #fff;
     border-top: 0;
   }
-}
-
-
-// ユーザーページ右カラム
-.extra_info {
-  margin-top: 95px;
-}
-
-
-.add-top-margin {
-  margin-top: 50px;
 }
