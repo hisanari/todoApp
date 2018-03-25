@@ -2,7 +2,7 @@
   <div class="panel-heading">
       <div class="row">
         <div class="col-xs-8">
-          <h3 class="panel-title"><%= task_list.title %></h3>
+          <h3 class="panel-title"><%= task_list.title %>のファイル</h3>
         </div>
         <div class="col-xs-4">
           <div class="text-right">(全<%= task_list.todos.count %>件中<%= task_list.todos.search_done.count %>件完了)</div>
@@ -11,19 +11,21 @@
   </div>
   <div class="panel-body">
     <% if task_list.todos.any? && task_list.todos.search_before_work.first.present? %>
-      <p>もっとも早いやることは、<%= task_list.todos.search_before_work.first.item %>です。(<%= task_list.todos.search_before_work.first.todo_limit %>まで)</p>
+      <p>ファイルの中で一番早いやることは、<%= task_list.todos.search_before_work.first.item %>です。(<%= task_list.todos.search_before_work.first.todo_limit %>まで)</p>
     <% else %>
-      <p>表示できるTodoはありません。</p>
+      <p>表示できるやることはありません。</p>
     <% end %>
     <p>作成日時: <time><%= task_list.created_at %></time></p>
   </div>
   <div class="panel-footer">
     <div class="row">
       <div class="col-xs-8">
-        <%= link_to "詳細を見る", task_list_todos_path(task_list.id), class: "btn btn-block btn-task" %>
+        <%= link_to "ファイルの中を見る", task_list_todos_path(task_list.id), class: "btn btn-block btn-task" %>
       </div>
       <div class="col-xs-4">
-        <%= link_to "削除する", task_list_path(task_list.id), method: :delete, class: "btn btn-block btn-danger", data: { confirm: "削除していいですか？"} %>
+        <%= link_to "ファイルを削除する",
+            task_list_path(task_list.id), method: :delete, class: "btn btn-block btn-danger",
+              data: { confirm: "登録済みのやることすべて削除されます。よろしいですか？"} %>
       </div>
     </div>
   </div>

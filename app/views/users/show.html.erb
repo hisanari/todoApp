@@ -6,46 +6,46 @@
   </aside>
   <div class="col-md-6">
     <div class="center_column">
-      <h2>タスクリスト</h2>
+      <h2 class="h2">やることファイル</h2>
+      <hr>
       <% if @task_lists.any? %>
         <%= render @task_lists %>
       <% else %>
-        <p>まだタスクリストは登録されていません</p>
+        <p>まだファイルは登録されていません</p>
       <% end %>
     </div>
   </div>
   <div class="col-md-3">
     <div class="extra_info">
-      <h2 class="extra-info-title">タスクリストを追加する</h2>
+      <h2 class="h2 extra-info-title">ファイルを追加する</h2>
+      <hr>
       <!-- エラーメッセージ -->
       <% if @new_tasklist.errors.any? %>
-      <div id="error_explanation">
+        <div id="error_explanation">
         <% @new_tasklist.errors.full_messages.each do |message| %>
         <strong><%= message %></strong>
-      </div>
-      <% end %>
+        </div>
+        <% end %>
       <% end %>
       <%= form_for @new_tasklist do |form| %>
         <div class="form-group">
-        <%= form.label :title %>
-        <%= form.text_field :title, placeholder: "タスクリスト名を入力", class: "form-control" %>
+        <%= form.label :title, "やることファイル名" %>
+        <%= form.text_field :title, placeholder: "ファイル名を入力", class: "form-control" %>
         <em>20文字以内で入力してください。</em>
         </div>
         <div class="form-group">
         <%= form.submit "作成する", class: "btn btn-block btn-primary" %>
         </div>
       <% end %>
-      <h2>最近</h2>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">最近、追加したTodo</div>
-          <ul class="list-group">
-            <% if @latest_todos.any? %>
-              <% @latest_todos.each do |todo| %>
-              <li class="list-group-item h4"><%= todo.item %><br><small>期限：<%= todo.todo_limit %></small></li>
-              <% end%>
-            <% end %>
-          </ul>
+      <h2 class="h2">最近、追加したやること</h2>
+      <hr>
+        <ul class="list-group">
+          <% if @latest_todos.any? %>
+            <% @latest_todos.each do |todo| %>
+            <li class="list-group-item h4"><%= todo.item %><br><small>期限：<%= todo.todo_limit %></a></li>
+            <% end%>
+          <% end %>
+        </ul>
         </div>
     </div>
   </div>

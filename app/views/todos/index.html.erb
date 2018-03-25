@@ -6,7 +6,8 @@
     </aside>
     <div class="col-md-6">
       <div class="center_column">
-      <h2><%= @current_tasklist.title %>のやること</h2>
+      <h2 class="h2"><%= @current_tasklist.title %>のやること</h2>
+      <hr>
       <% if @todos.any? %>
         <%= render @todos %>
       <% else %>
@@ -16,14 +17,15 @@
     </div>
     <div class="col-md-3">
       <div class="extra_info">
-        <h2 class="extra-info-title">やることを追加する</h2>
+        <h2 class="extra-info-title h2">やることを追加する</h2>
+        <hr>
         <!-- エラーメッセージ -->
         <% if @new_todo.errors.any? %>
         <div id="error_explanation">
           <% @new_todo.errors.full_messages.each do |message| %>
-          <strong><%= message %></strong>
+            <%= message %><br>
+          <% end %>
         </div>
-        <% end %>
         <% end %>
         <%= form_for @new_todo, url: task_list_todos_path do |form| %>
           <div class="form-group">

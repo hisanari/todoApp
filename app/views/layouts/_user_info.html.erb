@@ -1,32 +1,33 @@
 <section class="user_info">
   <h1>
     <%= current_user.email %>
-  </h1>
+  </h2>
   <ul>
-    <h2>メニュー</h2>
+    <h2 class="h2">メニュー</h2>
+    <hr>
     <li>
       <%= link_to users_path do %>
-        <span class="glyphicon glyphicon-list"></span>タスクリスト一覧
+        <span class="glyphicon glyphicon-list"></span>やることファイル一覧
       <% end %>
     </li>
     <li>
       <%= link_to all_todos_path do %>
-        <span class="glyphicon glyphicon-list-alt"></span>Todoをすべて見る
+        <span class="glyphicon glyphicon-list-alt"></span>すべてのやることを見る
       <% end%>
     </li>
     <li>
       <%= link_to before_work_todos_path do %>
-        <span class="glyphicon glyphicon-list-alt"></span>まだ完了していないTodo
+        <span class="glyphicon glyphicon-list-alt"></span>未完了のやること
       <% end%>
     </li>
     <li>
       <%= link_to done_all_todos_path do %>
-        <span class="glyphicon glyphicon-list-alt"></span>完了しているTodo
+        <span class="glyphicon glyphicon-list-alt"></span>完了済のやること
       <% end%>
     </li>
     <li>
       <%= link_to expired_all_todos_path do %>
-        <span class="glyphicon glyphicon-flash"></span>期限ぎれTodo
+        <span class="glyphicon glyphicon-flash"></span>期限ぎれのやること
       <% end%>
     </li>
   </ul>
