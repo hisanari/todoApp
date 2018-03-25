@@ -16,7 +16,7 @@ class TodosTest < ActionDispatch::IntegrationTest
     assert_equal current_path, users_path
     # todoの詳細リンク
     within find("#tasklist-#{@shukudai.id}") do
-      click_link '詳細を見る'
+      click_link 'ファイルの中を見る'
     end
     assert_equal current_path, task_list_todos_path(@shukudai)
     assert page.has_content? @math.item

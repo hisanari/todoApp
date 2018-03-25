@@ -4,53 +4,40 @@
   <aside class="col-md-3">
     <%= render 'layouts/user_info' %>
   </aside>
-  <div class="col-md-9">
+  <div class="col-sm-3">
     <div class="center_column">
       <h2 class="h2">検索する</h2>
-      <div class="row">
-
-      <div class="col-md-4">
-
-      <%= search_form_for @q, url: search_pages_path do |form| %>
-        <div class="form-group">
-          <%= form.search_field :title_or_todos_item_cont, placeholder: "タスクリスト名、やることを入力", class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.submit "検索", class:"btn btn-primary btn-block" %>
-
-        </div>
-      <% end %>
-    </div>
-  </div>
       <hr>
-      <p class="h2">検索結果</p>
-      <% @tasklists.each do |tasklist| %>
-        <h3><%= tasklist.title %></h3>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>アイテム名</th>
-                <th>期限</th>
-                <th>状態</th>
-                <th>タスクリスト名</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% tasklist.todos.each do |todo| %>
-              <tr>
-                <td><%= todo.item %></td>
-                <td><%= todo.todo_limit %></td>
-                <td><%= todo_status(todo) %></td>
-                <td><%= todo.task_list.title %></td>
-                <td><%= link_to "タスクリストページヘ", task_list_todos_path(todo.task_list.id) %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+      <div class="row">
+          <%= search_form_for @q, url: search_pages_path do |form| %>
+          <div class="form-group">
+            <%= form.search_field :title_or_todos_item_cont, placeholder: "タスクリスト名、やることを入力", class:"form-control" %>
+          </div>
+          <div class="form-group">
+          <%= form.submit "検索", class:"btn btn-primary btn-block" %>
+          </div>
           <% end %>
       </div>
     </div>
-    <!-- center_column -->
+  </div>
+  <div class="col-sm-6">
+    <p class="h2">検索結果</p>
+    <hr>
+    <% unless params[:q].nil? %>
+      <p class="h4">やることファイル</p>
+      <% @result.each do |tasklist| %>
+        <ul>
+          <%= link_to task_list_todos_path(tasklist.id) do %>
+            <li><%= tasklist.title %></li>
+          <% end %>
+          <% tasklist.todos.each do |todo| %>
+            <%= todo.item %>
+          <% end %>
+        </ul>
+      <% end %>
+
+    <% end %>
+    <!-- unless  -->
+
   </div>
 </div>

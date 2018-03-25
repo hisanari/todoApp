@@ -15,9 +15,9 @@ class SearchPagesTest < ActionDispatch::IntegrationTest
     visit users_path
     click_link '検索'
     assert_equal current_path, search_pages_path
-    assert page.has_content? @tasklist_shukudai.title
-    assert page.has_content? @tasklist_kaji.title
-    assert page.has_content? @math.item
+    assert_not page.has_content? @tasklist_shukudai.title
+    assert_not page.has_content? @tasklist_kaji.title
+    assert_not page.has_content? @math.item
     fill_in 'q[title_or_todos_item_cont]', with: '国語'
     find('input[name=commit]').click
     assert page.has_content? @tasklist_shukudai.title
