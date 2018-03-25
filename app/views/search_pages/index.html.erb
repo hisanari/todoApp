@@ -24,16 +24,20 @@
     <p class="h2">検索結果</p>
     <hr>
     <% unless params[:q].nil? %>
-      <p class="h4">やることファイル</p>
-      <% @result.each do |tasklist| %>
+      <% if @result.empty? %>
+        <p>検索結果はありません。</p>
+      <% else %>
+        <p class="h4">やることファイル</p>
+        <% @result.each do |tasklist| %>
         <ul>
           <%= link_to task_list_todos_path(tasklist.id) do %>
-            <li><%= tasklist.title %></li>
+          <li><%= tasklist.title %></li>
           <% end %>
           <% tasklist.todos.each do |todo| %>
             <%= todo.item %>
           <% end %>
         </ul>
+      <% end %>
       <% end %>
 
     <% end %>
