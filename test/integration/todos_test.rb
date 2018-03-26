@@ -16,7 +16,7 @@ class TodosTest < ActionDispatch::IntegrationTest
     assert_equal current_path, users_path
     # todoの詳細リンク
     within find("#tasklist-#{@shukudai.id}") do
-      click_link 'ファイルの中を見る'
+      click_link '見る'
     end
     assert_equal current_path, task_list_todos_path(@shukudai)
     assert page.has_content? @math.item
@@ -35,15 +35,15 @@ class TodosTest < ActionDispatch::IntegrationTest
     assert page.has_content? new_todo
     # Todoを完了、未完了にできる
     within find("#todo-#{@math.id}") do
-      click_link '完了にする'
+      click_link '完了'
     end
-    assert page.has_content? '完了しています'
-    assert page.has_content? '未完了にする'
+    assert page.has_content? '完了しています。'
+    assert page.has_content? '未完了'
     within find("#todo-#{@math.id}") do
-      click_link '未完了にする'
+      click_link '未完了'
     end
     assert page.has_content? 'まだ完了していません'
-    assert page.has_content? '完了にする'
+    assert page.has_content? '完了'
     # Todoを削除する
     click_on '削除する', match: :first
     assert page.has_content? '削除しました。'

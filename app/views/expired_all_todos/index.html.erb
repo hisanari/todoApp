@@ -4,12 +4,14 @@
   <aside class="col-md-3">
     <%= render 'layouts/user_info' %>
   </aside>
-  <div class="col-md-9">
+  <div class="col-md-4">
     <div class="center_column">
-      <h2>期限が過ぎているTodo</h2>
+      <h2 class="h2">期限が過ぎているやること</h2>
+      <hr>
+
       <% if @expired_todos.any? %>
         <%= render partial: 'layouts/todo_list', locals: { todos: @expired_todos } %>
-      <% else %>
+        <% else %>
         <p>期限が過ぎているTodoはありません</p>
       <% end %>
     </div>

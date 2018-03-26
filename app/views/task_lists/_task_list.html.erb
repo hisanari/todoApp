@@ -1,11 +1,11 @@
 <div id="tasklist-<%= task_list.id %>" class="panel panel-default">
   <div class="panel-heading">
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-6">
           <h3 class="panel-title"><%= task_list.title %>のファイル</h3>
         </div>
-        <div class="col-xs-4">
-          <div class="text-right">(全<%= task_list.todos.count %>件中<%= task_list.todos.search_done.count %>件完了)</div>
+        <div class="col-xs-6">
+          <div class="pull-right">(全<%= task_list.todos.count %>件中<%= task_list.todos.search_done.count %>件完了)</div>
         </div>
       </div>
   </div>
@@ -19,10 +19,10 @@
   </div>
   <div class="panel-footer">
     <div class="row">
-      <div class="col-xs-8">
-        <%= link_to "ファイルの中を見る", task_list_todos_path(task_list.id), class: "btn btn-block btn-task" %>
+      <div class="col-xs-6">
+        <%= link_to "見る", task_list_todos_path(task_list.id), class: "btn btn-block btn-task" %>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-6">
         <%= link_to "削除する",
             task_list_path(task_list.id), method: :delete, class: "btn btn-block btn-danger",
               data: { confirm: "登録済みのやることすべて削除されます。よろしいですか？"} %>

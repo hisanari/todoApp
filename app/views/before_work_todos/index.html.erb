@@ -4,9 +4,10 @@
   <aside class="col-md-3">
     <%= render 'layouts/user_info' %>
   </aside>
-  <div class="col-md-9">
+  <div class="col-md-4">
     <div class="center_column">
-      <h2>まだ完了していないTodo</h2>
+      <h2 class="h2">完了していないやること</h2>
+      <hr>
       <% if @before_work_todos.any? %>
         <%= render partial: 'layouts/todo_list', locals: { todos: @before_work_todos } %>
       <% else %>

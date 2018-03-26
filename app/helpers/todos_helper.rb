@@ -3,11 +3,11 @@ module TodosHelper
   def button_status(status)
     case status
     when 'before_work'
-      '完了にする'
+      '完了'
     when 'done'
-      '未完了にする'
+      '未完了'
     when 'expired'
-      '期限切れです。。。。'
+      '期限切れ'
     end
   end
 end
