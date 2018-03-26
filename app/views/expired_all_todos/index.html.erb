@@ -8,7 +8,7 @@
     <div class="center_column">
       <h2>期限が過ぎているTodo</h2>
       <% if @expired_todos.any? %>
-        <%= render partial: 'expired_todos', locals: { todos: @expired_todos } %>
+        <%= render partial: 'layouts/todo_list', locals: { todos: @expired_todos } %>
       <% else %>
         <p>期限が過ぎているTodoはありません</p>
       <% end %>

@@ -8,7 +8,7 @@
     <div class="center_column">
       <h2>完了しているTodo</h2>
       <% if @done_todos.any? %>
-        <%= render partial: 'done_todos', locals: { todos: @done_todos } %>
+        <%= render partial: 'layouts/todo_list', locals: { todos: @done_todos } %>
       <% else %>
         <p>完了しているTodoはありません</p>
       <% end %>
