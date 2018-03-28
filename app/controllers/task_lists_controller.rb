@@ -7,9 +7,7 @@ class TaskListsController < ApplicationController
       redirect_to users_path, notice: '新しいタスクリストが作成されました'
     else
       @task_lists = current_user.task_lists.created_latest
-      @latest_todos = Todo.where(
-        task_list_id: current_user.task_lists.ids
-      ).limit(5).order(created_at: :DESC)
+      @latest_todos = Todo.latest_todos(current_user.task_lists.ids).limit(5)
       render 'users/show'
     end
   end
