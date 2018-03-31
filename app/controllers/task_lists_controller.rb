@@ -24,5 +24,4 @@ class TaskListsController < ApplicationController
   def tasklist_params
     params.require(:task_list).permit(:title)
   end
-
 end
