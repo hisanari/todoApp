@@ -10,6 +10,6 @@ class Todo < ApplicationRecord
   scope :search_before_work, -> { where(status: 0).order(:todo_limit) }
   scope :search_done, -> { where(status: 1).order(:updated_at) }
   scope :search_expired, -> { where(status: 2) }
-  scope :created_latest, -> { order(created_at: :desc) }
-  scope :latest_todos, ->(ids) { where(task_list_id: ids).created_latest }
+  scope :user_todos, ->(ids) { where(task_list_id: ids) }
+  scope :latest_todos, -> { order(created_at: :desc).last(5) }
 end

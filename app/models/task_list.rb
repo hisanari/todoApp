@@ -6,4 +6,5 @@ class TaskList < ApplicationRecord
   validates :title,   presence: true, uniqueness: true, length: { maximum: 20 }
 
   scope :created_latest, -> { order('created_at DESC') }
+  scope :user_tasklist, ->(id) { find_by(id: id) }
 end

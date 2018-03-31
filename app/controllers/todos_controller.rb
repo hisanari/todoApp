@@ -2,19 +2,19 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    set_todos
-    set_current_tasklist
-    @new_todo = TaskList.find_by(id: params[:task_list_id]).todos.build
+    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
+    @todos = @tasklist.todos.order(:todo_limit)
+    @new_todo = @tasklist.todos.build
   end
 
   def create
-    @new_todo = TaskList.find_by(id: params[:task_list_id]).todos.build(todo_params)
+    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
+    @todos = @tasklist.todos.order(:todo_limit)
+    @new_todo = @tasklist.todos.build(todo_params)
 
     if @new_todo.save
       redirect_to task_list_todos_path, notice: '新しいTodoが作成されました。'
     else
-      set_todos
-      set_current_tasklist
       render 'todos/index'
     end
   end
@@ -30,11 +30,4 @@ class TodosController < ApplicationController
     params.require(:todo).permit(:item, :todo_limit)
   end
 
-  def set_todos
-    @todos = Todo.includes(:task_list).where(task_list_id: params[:task_list_id]).order(:todo_limit)
-  end
-
-  def set_current_tasklist
-    @current_tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
-  end
 end
