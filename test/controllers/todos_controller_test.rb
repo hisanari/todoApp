@@ -54,10 +54,25 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to task_list_todos_path
   end
 
-  test 'ログインしてない時は、destroyできない(login pageへ)' do
+  test 'ログインしてない時は、destroyできない(login page()へ)' do
     assert_no_difference 'Todo.count' do
       delete task_list_todo_path(@task, @todo)
     end
     assert_redirected_to new_user_session_path
+  end
+
+  test '他のユーザーのやることファイルページにアクセスするとリダイレクトされる' do
+    sign_in @user
+    @shopping = task_lists(:shopping)
+    get task_list_todos_path(@shopping)
+    assert_redirected_to users_path
+    assert_equal '存在しないか、権限がありません。', flash[:alert]
+  end
+
+  test '存在しないやることファイルにアクセスするとリダイレクトされる' do
+    sign_in @user
+    get task_list_todos_path(10)
+    assert_redirected_to users_path
+    assert_equal '存在しないか、権限がありません。', flash[:alert]
   end
 end

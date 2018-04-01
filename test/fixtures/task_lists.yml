@@ -1,9 +1,14 @@
 shukudai:
-  title: "国語"
+  title: "宿題"
   created_at: <%= 10.minutes.ago %>
   user: john
 
 kaji:
-  title: "洗濯"
+  title: "家事"
   created_at: <%= 3.days.ago %>
   user: john
+
+shopping:
+  title: "買い物"
+  created_at: <%= 3.days.ago %>
+  user: takeshi

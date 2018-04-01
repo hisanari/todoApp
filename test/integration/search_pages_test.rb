@@ -18,7 +18,7 @@ class SearchPagesTest < ActionDispatch::IntegrationTest
     assert_not page.has_content? @tasklist_shukudai.title
     assert_not page.has_content? @tasklist_kaji.title
     assert_not page.has_content? @math.item
-    fill_in 'q[title_or_todos_item_cont]', with: '国語'
+    fill_in 'q[title_or_todos_item_cont]', with: '宿題'
     find('input[name=commit]').click
     assert page.has_content? @tasklist_shukudai.title
     assert page.has_content? '数学'

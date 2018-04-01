@@ -11,3 +11,15 @@ sentaku:
   todo_limit: <%= Time.zone.yesterday %>
   status: 2
   task_list: kaji
+
+milk:
+  item: 牛乳
+  todo_limit: <%= Time.now.since 3.days %>
+  status: 0
+  task_list: shopping
+
+beer:
+  item: ビール
+  todo_limit: <%= Time.now.since 2.days %>
+  status: 0
+  task_list: shopping

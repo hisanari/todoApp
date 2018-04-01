@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
+  before_action :exists_tasklist
+  before_action :correct_user
 
   def index
     @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
@@ -28,5 +30,18 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:item, :todo_limit)
+  end
+
+  def exists_tasklist
+    unless TaskList.exists?(id: params[:task_list_id])
+      redirect_to users_path, alert: '存在しないか、権限がありません。'
+    end
+  end
+
+  def correct_user
+    tasklist = TaskList.find_by(id: params[:task_list_id])
+    unless current_user.id == tasklist.user_id
+      redirect_to users_path, alert: '存在しないか、権限がありません。'
+    end
   end
 end
