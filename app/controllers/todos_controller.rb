@@ -1,22 +1,19 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
   before_action :exists_tasklist
-  before_action :correct_user
 
   def index
-    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
     @todos = @tasklist.todos.order(:todo_limit)
     @new_todo = @tasklist.todos.build
   end
 
   def create
-    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
-    @todos = @tasklist.todos.order(:todo_limit)
     @new_todo = @tasklist.todos.build(todo_params)
 
     if @new_todo.save
       redirect_to task_list_todos_path, notice: '新しいTodoが作成されました。'
     else
+      @todos = @tasklist.todos.order(:todo_limit)
       render 'todos/index'
     end
   end
@@ -33,15 +30,7 @@ class TodosController < ApplicationController
   end
 
   def exists_tasklist
-    unless TaskList.exists?(id: params[:task_list_id])
-      redirect_to users_path, alert: '存在しないか、権限がありません。'
-    end
-  end
-
-  def correct_user
-    tasklist = TaskList.find_by(id: params[:task_list_id])
-    unless current_user.id == tasklist.user_id
-      redirect_to users_path, alert: '存在しないか、権限がありません。'
-    end
+    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
+    redirect_to users_path, alert: '存在しないか、権限がありません。' if @tasklist.nil?
   end
 end
