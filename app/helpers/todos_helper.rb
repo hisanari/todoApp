@@ -15,9 +15,12 @@ module TodosHelper
   def icon_status(status)
     case status
     when 'done'
-      content_tag(:span, '', class: ['glyphicon', 'glyphicon-ok', 'text-success'])
+      content_tag(:span, '',
+                  class: ['glyphicon', 'glyphicon-ok', 'text-success'])
     when 'expired'
-      content_tag(:span, '', class: ['glyphicon', 'glyphicon-flash', 'text-danger'])
+      content_tag(:span,
+                  '',
+                  class: ['glyphicon', 'glyphicon-flash', 'text-danger'])
     end
   end
 end

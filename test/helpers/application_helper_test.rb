@@ -30,4 +30,8 @@ class ApplicationHelperTest < ActionView::TestCase
     @math.status = 'expired'
     assert_equal(todo_status_for_css(@math), 'danger')
   end
+
+  # test 'Todoのステータスの アイコンのためのヘルパー' do
+  #   assert_equal(icon_status(@math), "")
+  # end
 end

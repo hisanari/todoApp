@@ -20,6 +20,7 @@ module ApplicationHelper
       '期限切れ'
     end
   end
+
   # Todoのstatusの状態によって色を変えるためのヘルパー
   def todo_status_for_css(todo)
     case todo.status
