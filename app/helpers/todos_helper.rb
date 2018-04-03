@@ -10,4 +10,14 @@ module TodosHelper
       '期限切れ'
     end
   end
+
+  # Todoのstatusによってiconを変える
+  def icon_status(status)
+    case status
+    when 'done'
+      content_tag(:span, '', class: ['glyphicon', 'glyphicon-ok', 'text-success'])
+    when 'expired'
+      content_tag(:span, '', class: ['glyphicon', 'glyphicon-flash', 'text-danger'])
+    end
+  end
 end
