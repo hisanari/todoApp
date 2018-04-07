@@ -6,5 +6,4 @@ class SearchPagesController < ApplicationController
     @q = TaskList.where(user_id: current_user.id).ransack(params[:q])
     @result = @q.result(distinct: true).includes(:todos)
   end
-
 end
