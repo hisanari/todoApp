@@ -8,7 +8,7 @@
     <hr>
     <div class="row">
       <div class="col-xs-6">
-          <%= link_to todos_status_path(todo.id), method: :patch, class: "btn btn-block btn-success" do %>
+          <%= link_to task_list_status_path(todo.task_list.id, todo.id), method: :patch, class: "btn btn-block btn-success" do %>
             <% button_status todo.status %>
           <% end %>
       </div>

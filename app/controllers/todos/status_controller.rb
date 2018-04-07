@@ -1,6 +1,8 @@
 class Todos::StatusController < ApplicationController
   before_action :authenticate_user!
 
+  # PATCH  /user/task_lists/:task_list_id/status/:id
+  # PUT  /user/task_lists/:task_list_id/status/:id
   def update
     # Todoのステータスを切り替える
     todo = Todo.find_by(id: params[:id])

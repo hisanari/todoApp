@@ -23,9 +23,9 @@ class TasklistTest < ActionDispatch::IntegrationTest
     fill_in 'task_list_title', with: 'a' * 21
     find('input[name="commit"]').click
     assert page.has_content? 'タスクリスト名は20文字以下に設定して下さい。'
-    fill_in 'task_list_title', with: '宿題'
-    find('input[name="commit"]').click
-    assert page.has_content? 'タスクリスト名は既に使用されています。'
+    # fill_in 'task_list_title', with: '宿題'
+    # find('input[name="commit"]').click
+    # assert page.has_content? 'タスクリスト名は既に使用されています。'
     # タスクリストの作成が成功する
     new_task = 'foobar'
     fill_in 'task_list_title', with: new_task

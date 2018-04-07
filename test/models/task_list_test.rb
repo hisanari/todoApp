@@ -25,11 +25,11 @@ class TaskListTest < ActiveSupport::TestCase
     assert_not @tasklist.valid?
   end
 
-  test 'タスクリストが被ってない' do
-    dup_task = @user.task_lists.build(title: 'foobar')
-    @tasklist.save
-    assert_not dup_task.valid?
-  end
+  # test 'タスクリストが被ってない' do
+  #   dup_task = @user.task_lists.build(title: 'foobar')
+  #   @tasklist.save
+  #   assert_not dup_task.valid?
+  # end
 
   test 'タスクリストが作成順に呼び出せる' do
     ordered_tasklist = @user.task_lists.all.created_latest

@@ -2,6 +2,7 @@ class TaskListsController < ApplicationController
   before_action :authenticate_user!
   before_action :exists_tasklist, only: [:destroy]
 
+  # POST /user/task_list
   def create
     tasklists = current_user.task_lists
     @new_tasklist = tasklists.build(tasklist_params)
@@ -15,6 +16,7 @@ class TaskListsController < ApplicationController
     end
   end
 
+  # DELETE /user/task_list/id
   def destroy
     @tasklist.destroy
     redirect_to users_path, alert: '削除しました。'

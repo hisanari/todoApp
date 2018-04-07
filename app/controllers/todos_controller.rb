@@ -2,11 +2,13 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
   before_action :exists_tasklist
 
+  # GET user/task_list/task_list_id/todos
   def index
     @todos = @tasklist.todos.order(:todo_limit)
     @new_todo = @tasklist.todos.build
   end
 
+  # POST /user/task_lists/:task_list_id/todos
   def create
     @new_todo = @tasklist.todos.build(todo_params)
 
@@ -18,6 +20,7 @@ class TodosController < ApplicationController
     end
   end
 
+  # DELETE /user/task_lists/:task_list_id/todos/:id
   def destroy
     Todo.find_by(id: params[:id]).destroy
     redirect_to task_list_todos_path, alert: '削除しました。'

@@ -8,17 +8,20 @@ Rails.application.routes.draw do
 
   resource :users, only: %i[show]
 
-  resources :task_lists, only: %i[create destroy] do
-    resources :todos, only: %i[index create destroy]
-  end
+  scope 'user' do
+    resources :task_lists, only: %i[create destroy] do
+      resources :todos, only: %i[index create destroy]
+      resources :status, only: %i[update], module: 'todos'
+    end
 
-  namespace :todos do
-    resources :status, only: %i[update]
-  end
+    scope module: :todos do
+      resources :all_todos, only: %i[index]
+      resources :before_work_todos, only: %i[index]
+      resources :done_all_todos, only: %i[index]
+      resources :expired_all_todos, only: %i[index]
+    end
 
-  resources :all_todos, only: %i[index]
-  resources :before_work_todos, only: %i[index]
-  resources :done_all_todos, only: %i[index]
-  resources :expired_all_todos, only: %i[index]
-  resources :search_pages, only: %i[index]
+    resources :search_pages, only: %i[index]
+
+  end
 end

@@ -8,7 +8,7 @@ class Todos::StatusControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'ログインしていない時は、ログインページヘ' do
-    patch todos_status_path(@todo)
+    patch task_list_status_path(@todo.task_list.id, @todo)
     assert_redirected_to new_user_session_path
   end
 end
