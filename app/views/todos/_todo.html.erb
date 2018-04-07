@@ -8,9 +8,7 @@
     <hr>
     <div class="row">
       <div class="col-xs-6">
-          <%= link_to task_list_status_path(todo.task_list.id, todo.id), method: :patch, class: "btn btn-block btn-success" do %>
-            <% button_status todo.status %>
-          <% end %>
+            <%= button_status todo %>
       </div>
       <div class="col-xs-6">
         <%= link_to "削除する", task_list_todo_path(todo.task_list.id, todo.id), method: :delete, class: "btn btn-block btn-danger", data: { confirm: "削除していいですか？"} %>

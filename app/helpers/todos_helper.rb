@@ -1,13 +1,15 @@
 module TodosHelper
   # Todoのstatusの状態によってボタンを変える
-  def button_status(status)
-    case status
+  def button_status(todo)
+    case todo.status
     when 'before_work'
-      '完了'
+      link_to('完了にする',
+              task_list_status_path(todo.task_list.id, todo.id),
+              class: 'btn btn-block btn-success')
     when 'done'
-      '未完了'
+      button_tag('完了済', class: 'btn btn-block disabled')
     when 'expired'
-      '期限切れ'
+      button_tag('期限切れ', class: 'btn btn-block disabled')
     end
   end
 
@@ -18,8 +20,7 @@ module TodosHelper
       content_tag(:span, '',
                   class: ['glyphicon', 'glyphicon-ok', 'text-success'])
     when 'expired'
-      content_tag(:span,
-                  '',
+      content_tag(:span, '',
                   class: ['glyphicon', 'glyphicon-flash', 'text-danger'])
     end
   end
