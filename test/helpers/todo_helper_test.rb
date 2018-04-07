@@ -11,11 +11,17 @@ class TodoHelperTest < ActionView::TestCase
   end
 
   test 'Todoのステータスのボタンのためのヘルパー' do
-    assert_equal(button_status(@math.status), '完了')
+    expect = link_to('完了にする',
+                     task_list_status_path(@math.task_list.id, @math.id),
+                     method: :put,
+                     class: 'btn btn-block btn-success')
+    assert_equal(button_status(@math), expect)
     @math.status = 'done'
-    assert_equal(button_status(@math.status), '未完了')
+    expect = button_tag('完了済', class: 'btn btn-block disabled')
+    assert_equal(button_status(@math), expect)
     @math.status = 'expired'
-    assert_equal(button_status(@math.status), '期限切れ')
+    expect = button_tag('期限切れ', class: 'btn btn-block disabled')
+    assert_equal(button_status(@math), expect)
   end
 
   test 'Todoのステータスのアイコンのためのヘルパー' do

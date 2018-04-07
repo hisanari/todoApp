@@ -7,6 +7,7 @@ class TodosTest < ActionDispatch::IntegrationTest
     @user = users(:john)
     @shukudai = task_lists(:shukudai)
     @math = todos(:math)
+    @english = todos(:english)
   end
 
   test 'ログインからtodoの一覧表示、作成、更新、削除' do
@@ -33,20 +34,23 @@ class TodosTest < ActionDispatch::IntegrationTest
     find('input[name="commit"]').click
     assert page.has_content? '新しいTodoが作成されました。'
     assert page.has_content? new_todo
-    # Todoを完了、未完了にできる
+    # Todoのボタンが状態によって変わる
+    # Todoがbefore_workの時
     within find("#todo-#{@math.id}") do
-      click_link '完了'
+      find_link '完了にする'
+      click_link '完了にする'
     end
-    assert page.has_content? '完了しています。'
-    assert page.has_content? '未完了'
+    # Todoがdoneの時
     within find("#todo-#{@math.id}") do
-      click_link '未完了'
+      find_button('完了済').has_css?('disabled')
     end
-    assert page.has_content? 'まだ完了していません'
-    assert page.has_content? '完了'
+    # Todoが期限切れの時
+    within find("#todo-#{@english.id}") do
+      find_button('期限切れ').has_css?('disabled')
+    end
     # Todoを削除する
     click_on '削除する', match: :first
     assert page.has_content? '削除しました。'
-    assert_not page.has_content? new_todo
+    assert_not page.has_content? @english
   end
 end

@@ -5,6 +5,7 @@ module TodosHelper
     when 'before_work'
       link_to('完了にする',
               task_list_status_path(todo.task_list.id, todo.id),
+              method: :put,
               class: 'btn btn-block btn-success')
     when 'done'
       button_tag('完了済', class: 'btn btn-block disabled')

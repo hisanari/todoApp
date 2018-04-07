@@ -6,6 +6,12 @@ math:
   status: 0
   task_list: shukudai
 
+english:
+  item: 英語
+  todo_limit: <%= Time.now.yesterday %>
+  status: 2
+  task_list: shukudai
+
 sentaku:
   item: 洗濯
   todo_limit: <%= Time.zone.yesterday %>
