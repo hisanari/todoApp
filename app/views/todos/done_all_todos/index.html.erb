@@ -6,7 +6,7 @@
   </aside>
   <div class="col-md-9">
     <div class="center_column">
-      <h2 class="h2">完了すみのやること</h2>
+      <h2 class="h2">完了していること</h2>
       <hr>
       <% if @done_todos.any? %>
         <%= render partial: 'layouts/todo_list', locals: { todos: @done_todos } %>
