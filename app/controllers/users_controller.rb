@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 
   # GET /users
   def show
-    @task_lists = current_user.task_lists.includes(:todos).created_latest
-    @new_tasklist = current_user.task_lists.build
-    @latest_todos = Todo.user_todos(current_user.task_lists.ids).latest_todos
+    user_task = current_user.task_lists
+    @task_lists = user_task.includes(:todos).created_latest
+    @new_tasklist = user_task.build
+    @latest_todos = Todo.user_todos(
+      user_task.ids
+    ).includes(:task_list).latest_todos
   end
 end
