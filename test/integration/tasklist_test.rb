@@ -19,10 +19,10 @@ class TasklistTest < ActionDispatch::IntegrationTest
     # タスクリストの作成が失敗する
     fill_in 'task_list_title', with: ''
     find('input[name="commit"]').click
-    assert page.has_content? 'タスクリスト名が入力されていません。'
+    assert page.has_content? 'ファイル名が入力されていません。'
     fill_in 'task_list_title', with: 'a' * 21
     find('input[name="commit"]').click
-    assert page.has_content? 'タスクリスト名は20文字以下に設定して下さい。'
+    assert page.has_content? 'ファイル名は20文字以下に設定して下さい。'
     # fill_in 'task_list_title', with: '宿題'
     # find('input[name="commit"]').click
     # assert page.has_content? 'タスクリスト名は既に使用されています。'
@@ -30,7 +30,7 @@ class TasklistTest < ActionDispatch::IntegrationTest
     new_task = 'foobar'
     fill_in 'task_list_title', with: new_task
     find('input[name="commit"]').click
-    assert page.has_content? '新しいタスクリストが作成されました'
+    assert page.has_content? 'ファイルが作成されました'
     assert page.has_content? new_task
     # タスクリストを削除する
     click_on '削除する', match: :first

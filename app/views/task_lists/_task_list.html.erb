@@ -16,15 +16,19 @@
       <p>表示できるやることはありません。</p>
     <% end %>
     <p>作成日時: <time><%= task_list.created_at %></time></p>
+
   </div>
   <div class="panel-footer">
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-4">
         <%= link_to "見る", task_list_todos_path(task_list.id), class: "btn btn-block btn-task" %>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-4">
+        <%= link_to "編集", edit_task_list_path(task_list.id), class: "btn btn-block btn-edit", remote: true %>
+      </div>
+      <div class="col-xs-4">
         <%= link_to "削除する",
-            task_list_path(task_list.id), method: :delete, class: "btn btn-block btn-danger",
+            task_list_path(task_list.id), method: :delete, class: "btn btn-block btn-delete",
               data: { confirm: "登録済みのやることすべて削除されます。よろしいですか？"} %>
       </div>
     </div>

@@ -222,13 +222,35 @@ aside {
     color: #ffffff;
   }
   .btn-task {
-    border: solid 1px #cbcbcb;
+    border: solid 1px #54a0e6;
     transition: 0.3s linear;
     border-radius: 3px;
     &:hover {
       border: none;
       color: #fff;
       background: #54a0e6;
+      transition: 0.3s linear;
+    }
+  }
+  .btn-edit {
+    border: solid 1px #1043de;
+    transition: 0.3s linear;
+    border-radius: 3px;
+    &:hover {
+      border: none;
+      color: #fff;
+      background: #1043de;
+      transition: 0.3s linear;
+    }
+  }
+  .btn-delete {
+    border: solid 1px #ff6161;
+    transition: 0.3s linear;
+    border-radius: 3px;
+    &:hover {
+      border: none;
+      color: #fff;
+      background: #ff6161;
       transition: 0.3s linear;
     }
   }
