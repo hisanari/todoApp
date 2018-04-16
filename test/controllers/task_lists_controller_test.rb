@@ -35,9 +35,12 @@ class TaskListsControllerTest < ActionDispatch::IntegrationTest
     assert_equal '存在しないか、権限がありません。', flash[:alert]
   end
 
-  test 'ログインしていないまたは、ユーザー以外はeditにアクセスできない' do
+  test 'ログインしていないユーザーはeditアクセスできない' do
     get edit_task_list_path(@tasklist), xhr: true
     assert_response 401
+  end
+
+  test 'ユーザー以外はeditにアクセスできない' do
     sign_in(@user)
     # 他のユーザーが所持するタスク
     @shopping = task_lists(:shopping)
@@ -45,5 +48,4 @@ class TaskListsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_path
     assert_equal '存在しないか、権限がありません。', flash[:alert]
   end
-
 end

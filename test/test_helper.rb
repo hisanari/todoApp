@@ -3,6 +3,7 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'capybara/minitest'
 require 'minitest/reporters'
+require 'capybara/poltergeist'
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
@@ -14,5 +15,6 @@ class ActiveSupport::TestCase
   def teardown
     Capybara.reset_sessions!
     Capybara.use_default_driver
+    # Capybara.default_max_wait_time = 5
   end
 end
