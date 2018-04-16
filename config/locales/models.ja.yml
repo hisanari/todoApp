@@ -8,7 +8,7 @@ ja:
         current_password: 現在のパスワード
         remember_me: 次回から自動的にログイン
       task_list:
-        title: タスクリスト名
+        title: ファイル名
       todo:
         item: やること
         todo_limit: 期限

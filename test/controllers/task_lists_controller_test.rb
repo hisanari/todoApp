@@ -26,10 +26,25 @@ class TaskListsControllerTest < ActionDispatch::IntegrationTest
 
   test '他のユーザーが削除できない' do
     sign_in(@user)
+    # 他のユーザーが所持するタスク
     @shopping = task_lists(:shopping)
     assert_no_difference 'TaskList.count' do
       delete task_list_path(@shopping)
     end
+    assert_redirected_to users_path
+    assert_equal '存在しないか、権限がありません。', flash[:alert]
+  end
+
+  test 'ログインしていないユーザーはeditアクセスできない' do
+    get edit_task_list_path(@tasklist), xhr: true
+    assert_response 401
+  end
+
+  test 'ユーザー以外はeditにアクセスできない' do
+    sign_in(@user)
+    # 他のユーザーが所持するタスク
+    @shopping = task_lists(:shopping)
+    get edit_task_list_path(@shopping), xhr: true
     assert_redirected_to users_path
     assert_equal '存在しないか、権限がありません。', flash[:alert]
   end
