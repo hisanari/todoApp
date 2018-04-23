@@ -1,4 +1,10 @@
 <% provide(:title, current_user.email)%>
+<div class="row">
+  <div class="col-md-12">
+    <p class="h2"><%= current_user.email %></p>
+    <hr>
+  </div>
+</div>
 <%= render 'devise/shared/error_messages' %>
 <div class="row">
     <aside class="col-md-3">
