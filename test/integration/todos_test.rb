@@ -8,11 +8,11 @@ class TodosTest < ActionDispatch::IntegrationTest
     @shukudai = task_lists(:shukudai)
     @math = todos(:math)
     @english = todos(:english)
-  end
-
-  test 'ログインからtodoの一覧表示、作成、更新、削除' do
     # ログインする
     sign_in @user
+  end
+
+  test 'ログインからtodoの一覧表示' do
     visit users_path
     assert_equal current_path, users_path
     # todoの詳細リンク
@@ -21,6 +21,14 @@ class TodosTest < ActionDispatch::IntegrationTest
     end
     assert_equal current_path, task_list_todos_path(@shukudai)
     assert page.has_content? @math.item
+  end
+
+  test 'todoの作成と失敗' do
+    visit users_path
+    assert_equal current_path, users_path
+    within find("#tasklist-#{@shukudai.id}") do
+      click_link '見る'
+    end
     # Todoの作成が失敗する
     fill_in 'todo_item', with: ''
     find('input[name="commit"]').click
@@ -34,6 +42,14 @@ class TodosTest < ActionDispatch::IntegrationTest
     find('input[name="commit"]').click
     assert page.has_content? '新しいTodoが作成されました。'
     assert page.has_content? new_todo
+  end
+
+  test 'todoの更新と状態' do
+    visit users_path
+    assert_equal current_path, users_path
+    within find("#tasklist-#{@shukudai.id}") do
+      click_link '見る'
+    end
     # Todoのボタンが状態によって変わる
     # Todoがbefore_workの時
     within find("#todo-#{@math.id}") do
@@ -47,6 +63,14 @@ class TodosTest < ActionDispatch::IntegrationTest
     # Todoが期限切れの時
     within find("#todo-#{@english.id}") do
       find_button('期限切れ').has_css?('disabled')
+    end
+  end
+
+  test 'todoの削除' do
+    visit users_path
+    assert_equal current_path, users_path
+    within find("#tasklist-#{@shukudai.id}") do
+      click_link '見る'
     end
     # Todoを削除する
     click_on '削除する', match: :first
