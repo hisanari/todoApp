@@ -2,7 +2,11 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to 'やることリスト',root_path, id: "logo" %>
+        <% if user_signed_in? %>
+        <%= link_to 'やることリスト',users_path, id: "logo" %>
+        <% else %>
+          <%= link_to 'やることリスト',root_path, id: "logo" %>
+        <% end %>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -13,7 +17,16 @@
       <div class="collapse navbar-collapse" id="top-nav">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><%= link_to "ユーザートップ", users_path, class: "glyphicon glyphicon-home" %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to users_path do %><i class="glyphicon glyphicon-home"></i>ホーム<% end %></li>
+                <li><%= link_to all_todos_path do %><i class="glyphicon glyphicon-list-alt"></i>すべてのやること<% end %></li>
+                <li><%= link_to before_work_todos_path do %><i class="glyphicon glyphicon-list-alt"></i>完了していないこと<% end %></li>
+                <li><%= link_to done_all_todos_path do %><i class="glyphicon glyphicon-list-alt"></i>完了していること<% end %></li>
+                <li><%= link_to expired_all_todos_path do %><i class="glyphicon glyphicon-flash"></i>期限ぎれのこと<% end %></li>
+              </ul>
+            </li>
             <li><%= link_to "ユーザー情報編集", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
             <li><%= link_to "検索", search_pages_path, class: "glyphicon glyphicon-search" %></li>
             <li class="divider"></li>

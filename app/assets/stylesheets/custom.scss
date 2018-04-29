@@ -35,7 +35,6 @@ i {
 
 span {
   display: inline-block;
-  padding-right: 15px;
 }
 
 // その他
@@ -55,12 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   letter-spacing: -2px;
-  text-align: center;
 }
 
 h2 {
   letter-spacing: -1.5px;
-  text-align: center;
   font-size: 1.8em;
   font-weight: normal;
 }
@@ -110,6 +107,19 @@ a:hover {
   border-bottom: 1px solid #B7B7B7;
 }
 
+.dropdown {
+  .dropdown-menu {
+    li {
+      a {
+        padding-bottom: 13px;
+        i {
+          padding-right: 13px;
+        }
+      }
+    }
+  }
+}
+
 // sidebar
 aside {
   section.user_info {
@@ -146,6 +156,9 @@ aside {
         border-bottom: 1px solid rgb(218, 218, 218);
         span {
           margin-right: 3px;
+          padding-right: 15px;
+
+
         }
       }
       a {
