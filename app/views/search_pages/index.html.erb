@@ -1,47 +1,37 @@
 <% provide(:title, current_user.email)%>
 <%= render 'devise/shared/error_messages' %>
 <div class="row">
-  <aside class="col-md-3">
-    <%= render 'layouts/user_info' %>
-  </aside>
-  <div class="col-sm-3">
+  <div class="col-lg-9">
     <div class="center_column">
-      <h2 class="h2">検索する</h2>
+      <h2 class="h2">
+        <% if params[:q].empty? %>
+          すべての検索結果
+        <% else %>
+          <%= params[:q]%>の検索結果</h2>
+        <% end %>
       <hr>
-      <div class="row">
-          <%= search_form_for @q, url: search_pages_path do |form| %>
-          <div class="form-group">
-            <%= form.search_field :title_or_todos_item_cont, placeholder: "タスクリスト名、やることを入力", class:"form-control" %>
-          </div>
-          <div class="form-group">
-          <%= form.submit "検索", class:"btn btn-primary btn-block" %>
-          </div>
-          <% end %>
-      </div>
+
+      <% if @task_result.any? %>
+        <% @task_result.each do |tasklist| %>
+          <h3>やることファイルの検索結果</h3>
+          <%= render partial: 'task_lists/task_list', locals: {task_list: tasklist} %>
+        <% end %>
+      <% else %>
+        <p class="text-danger">やることファイルは見つかりませんでした。</p>
+      <% end %>
+
+      <% if @todo_result.any? %>
+        <h3>やることの検索結果</h3>
+          <%= render partial: 'layouts/todo_list', locals: {todos: @todo_result} %>
+      <% else %>
+        <p class="text-danger">やることは見つかりませんでした。</p>
+      <% end %>
+
     </div>
   </div>
-  <div class="col-sm-6">
-    <p class="h2">検索結果</p>
-    <hr>
-    <% unless params[:q].nil? %>
-      <% if @result.empty? %>
-        <p>検索結果はありません。</p>
-      <% else %>
-        <p class="h4">やることファイル</p>
-        <% @result.each do |tasklist| %>
-        <ul>
-          <%= link_to task_list_todos_path(tasklist.id) do %>
-          <li><%= tasklist.title %></li>
-          <% end %>
-          <% tasklist.todos.each do |todo| %>
-            <%= todo.item %>
-          <% end %>
-        </ul>
-      <% end %>
-      <% end %>
-
-    <% end %>
-    <!-- unless  -->
-
-  </div>
+  <aside class="col-lg-3 visible-lg">
+    <%= render 'layouts/user_info' %>
+  </aside>
 </div>
+
+<div id="edit-form" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

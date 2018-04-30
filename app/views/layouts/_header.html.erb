@@ -28,6 +28,11 @@
               </ul>
             </li>
             <li><%= link_to "ユーザー情報編集", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
+            <li>
+              <%= form_tag({controller: "search_pages"}, method: "get", class: "navbar-form navbar-left") do %>
+                <%= text_field_tag :q, '', class: "form-control", placeholder: "検索" %>
+              <% end %>
+            </li>
             <li><%= link_to "検索", search_pages_path, class: "glyphicon glyphicon-search" %></li>
             <li class="divider"></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
