@@ -29,7 +29,7 @@
             </li>
             <li><%= link_to "ユーザー情報編集", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
             <li>
-              <%= form_tag({controller: "search_pages"}, method: "get", class: "navbar-form navbar-left") do %>
+              <%= form_tag({controller: "/search_pages"}, method: "get", class: "navbar-form navbar-left") do %>
                 <%= text_field_tag :q, '', class: "form-control", placeholder: "検索" %>
               <% end %>
             </li>
