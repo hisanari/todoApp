@@ -11,18 +11,16 @@
         <% end %>
       <hr>
 
-      <% if @task_result.any? %>
-        <% @task_result.each do |tasklist| %>
-          <h3>やることファイルの検索結果</h3>
-          <%= render partial: 'task_lists/task_list', locals: {task_list: tasklist} %>
-        <% end %>
+      <% if @task_results.any? %>
+        <h3>やることファイルの検索結果</h3>
+        <%= render @task_results %>
       <% else %>
         <p class="text-danger">やることファイルは見つかりませんでした。</p>
       <% end %>
 
-      <% if @todo_result.any? %>
+      <% if @todo_results.any? %>
         <h3>やることの検索結果</h3>
-          <%= render partial: 'layouts/todo_list', locals: {todos: @todo_result} %>
+          <%= render partial: 'layouts/todo_list', locals: {todos: @todo_results} %>
       <% else %>
         <p class="text-danger">やることは見つかりませんでした。</p>
       <% end %>
