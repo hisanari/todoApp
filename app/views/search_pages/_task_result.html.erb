@@ -1,0 +1,11 @@
+<div class="row">
+    <% task_results.each do |result| %>
+    <div class="col-lg-6">
+      <div class="tasklist-search card">
+        <%= link_to task_list_todos_path(result.id) do %>
+        <h2><%= result.title %>のファイル</h2>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+</div>

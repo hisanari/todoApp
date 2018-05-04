@@ -13,7 +13,7 @@
 
       <% if @task_results.any? %>
         <h3>やることファイルの検索結果</h3>
-        <%= render @task_results %>
+        <%= render partial: 'task_result', locals: {task_results: @task_results} %>
       <% else %>
         <p class="text-danger">やることファイルは見つかりませんでした。</p>
       <% end %>
