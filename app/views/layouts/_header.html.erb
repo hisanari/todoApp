@@ -33,7 +33,6 @@
                 <%= text_field_tag :q, '', class: "form-control", placeholder: "検索" %>
               <% end %>
             </li>
-            <li><%= link_to "検索", search_pages_path, class: "glyphicon glyphicon-search" %></li>
             <li class="divider"></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
           <% else %>
