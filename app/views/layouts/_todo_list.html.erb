@@ -1,7 +1,7 @@
 <div class="row">
   <% todos.each do |todo| %>
     <div class="col-lg-6">
-      <div class="text-<%= todo_status_for_css todo %> card">
+      <div id="todo-id-<%= todo.id %>" class="text-<%= todo_status_for_css todo %> card">
         <%= link_to task_list_todos_path(todo.task_list.id) do %>
         <p class="h3"><%= todo.item %></p>
         <p><%= todo_status_for_text(todo) %></p>

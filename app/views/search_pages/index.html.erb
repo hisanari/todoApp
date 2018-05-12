@@ -15,14 +15,14 @@
         <h3>やることファイルの検索結果</h3>
         <%= render partial: 'task_result', locals: {task_results: @task_results} %>
       <% else %>
-        <p class="text-danger">やることファイルは見つかりませんでした。</p>
+        <h3 class="text-danger">やることファイルは見つかりませんでした。</h3>
       <% end %>
 
       <% if @todo_results.any? %>
         <h3>やることの検索結果</h3>
           <%= render partial: 'layouts/todo_list', locals: {todos: @todo_results} %>
       <% else %>
-        <p class="text-danger">やることは見つかりませんでした。</p>
+        <h3 class="text-danger">やることは見つかりませんでした。</h3>
       <% end %>
 
     </div>
