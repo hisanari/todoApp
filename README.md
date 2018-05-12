@@ -13,5 +13,5 @@ url https://dry-dawn-72805.herokuapp.com/
 
 ### 特徴
 - ログイン機能(devise)
-- 検索機能(ransack)
+- 検索機能
 - 定期的に期限切れのチェック(rake task)
