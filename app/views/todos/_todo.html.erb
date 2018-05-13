@@ -1,11 +1,17 @@
 <div id="todo-<%= todo.id %>" class="panel panel-default">
   <div class="panel-body">
-    <h3 class="h1"><%= icon_status todo.status %><%= todo.item %></h3>
-    <hr>
-    <p class="h4"><%= todo_status_for_text todo %></p>
-    <p>期限: <time><%= todo.todo_limit %></time></p>
-    <p>作成日時: <time><%= todo.created_at %></time></p>
-    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="h2"><%= icon_status todo.status %><%= todo.item %></h3>
+        <hr class="visible-xs">
+      </div>
+      <div class="col-md-6">
+        <p class="h4"><%= todo_status_for_text todo %></p>
+        <p>期限: <time><%= todo.todo_limit %></time></p>
+        <p>作成日時: <time><%= todo.created_at %></time></p>
+      </div>
+    </div>
+    <hr class="panel-hr">
     <div class="row">
       <div class="col-xs-6">
             <%= button_status todo %>
