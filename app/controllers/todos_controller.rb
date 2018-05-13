@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
   # GET user/task_list/task_list_id/todos
   def index
-    @todos = @tasklist.todos.order(:todo_limit).page(params[:page]).per(3)
+    @todos = @tasklist.todos.order(created_at: :desc).page(params[:page]).per(3)
     @new_todo = @tasklist.todos.build
   end
 
@@ -15,7 +15,7 @@ class TodosController < ApplicationController
     if @new_todo.save
       redirect_to task_list_todos_path, notice: '新しいTodoが作成されました。'
     else
-      @todos = @tasklist.todos.order(:todo_limit)
+      @todos = @tasklist.todos.order(created_at: :desc).page(params[:page]).per(3)
       render 'todos/index'
     end
   end

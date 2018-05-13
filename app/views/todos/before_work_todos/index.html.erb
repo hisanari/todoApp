@@ -15,6 +15,7 @@
       <hr>
       <% if @before_work_todos.any? %>
         <%= render partial: 'layouts/todo_list', locals: { todos: @before_work_todos } %>
+        <%= paginate @before_work_todos %>
       <% else %>
         <p>完了していないTodoはありません。</p>
       <% end %>

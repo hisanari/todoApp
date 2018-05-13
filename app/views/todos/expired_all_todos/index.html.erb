@@ -15,6 +15,7 @@
 
       <% if @expired_todos.any? %>
         <%= render partial: 'layouts/todo_list', locals: { todos: @expired_todos } %>
+        <%= paginate @expired_todos %>
         <% else %>
         <p>期限が過ぎているTodoはありません</p>
       <% end %>
