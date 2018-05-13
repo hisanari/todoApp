@@ -14,7 +14,7 @@
     <hr class="panel-hr">
     <div class="row">
       <div class="col-xs-6">
-            <%= button_status todo %>
+        <%= button_status todo %>
       </div>
       <div class="col-xs-6">
         <%= link_to "削除する", task_list_todo_path(todo.task_list.id, todo.id), method: :delete, class: "btn btn-block btn-danger", data: { confirm: "削除していいですか？"} %>

@@ -1,11 +1,11 @@
 ja:
   views:
     pagination:
-      first: "最初のページヘ"
-      last: "最後のページヘ"
-      previous: "前のページへ"
-      next: "次のページヘ"
-      truncate: "..."
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
