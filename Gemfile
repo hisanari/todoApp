@@ -17,6 +17,7 @@ gem 'devise'
 gem 'jquery-rails', '4.3.1'
 gem 'rails-i18n'
 gem 'ransack'
+gem 'kaminari'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use Redis adapter to run Action Cable in production

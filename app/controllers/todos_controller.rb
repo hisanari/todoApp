@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
   # GET user/task_list/task_list_id/todos
   def index
-    @todos = @tasklist.todos.order(:todo_limit)
+    @todos = @tasklist.todos.order(:todo_limit).page(params[:page]).per(3)
     @new_todo = @tasklist.todos.build
   end
 

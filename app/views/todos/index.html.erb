@@ -38,6 +38,7 @@
       <hr>
       <% if @todos.any? %>
         <%= render @todos %>
+        <%= paginate @todos %>
       <% else %>
         <p>まだ登録されていません。</p>
       <% end %>
