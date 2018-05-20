@@ -21,6 +21,7 @@ class TodosTest < ActionDispatch::IntegrationTest
     end
     assert_equal current_path, task_list_todos_path(@shukudai)
     assert page.has_content? @math.item
+    assert page.has_css? 'ul.pagination'
   end
 
   test 'todoの作成と失敗' do

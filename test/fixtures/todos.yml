@@ -1,20 +1,32 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+<% 10.times do |n| %>
+math_<%= n %>:
+  item: <%= "計算_#{n} "%>
+  todo_limit: <%= Time.now.since 3.days %>
+  status: 0
+  task_list: shukudai
+<% end %>
+
 math:
   item: 数学
   todo_limit: <%= Time.now.tomorrow %>
   status: 0
   task_list: shukudai
+  #テスト時に１ページ目に表示されるため
+  created_at: <%= Time.now.tomorrow %>
 
 english:
   item: 英語
   todo_limit: <%= Time.now.yesterday %>
   status: 2
   task_list: shukudai
-
+  #テスト時に１ページ目に表示されるため
+  created_at: <%= Time.now.tomorrow %>
+  
 sentaku:
   item: 洗濯
-  todo_limit: <%= Time.zone.yesterday %>
+  todo_limit: <%= Time.now.yesterday %>
   status: 2
   task_list: kaji
 
