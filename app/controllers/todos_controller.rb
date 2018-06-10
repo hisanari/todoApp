@@ -28,12 +28,12 @@ class TodosController < ApplicationController
 
   private
 
-  def todo_params
-    params.require(:todo).permit(:item, :todo_limit)
-  end
+    def todo_params
+      params.require(:todo).permit(:item, :todo_limit)
+    end
 
-  def exists_tasklist
-    @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
-    redirect_to users_path, alert: '存在しないか、権限がありません。' if @tasklist.nil?
-  end
+    def exists_tasklist
+      @tasklist = current_user.task_lists.find_by(id: params[:task_list_id])
+      redirect_to users_path, alert: '存在しないか、権限がありません。' if @tasklist.nil?
+    end
 end

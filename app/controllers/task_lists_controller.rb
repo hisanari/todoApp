@@ -39,12 +39,12 @@ class TaskListsController < ApplicationController
 
   private
 
-  def tasklist_params
-    params.require(:task_list).permit(:title)
-  end
+    def tasklist_params
+      params.require(:task_list).permit(:title)
+    end
 
-  def exists_tasklist
-    @tasklist = current_user.task_lists.find_by(id: params[:id])
-    redirect_to users_path, alert: '存在しないか、権限がありません。' if @tasklist.nil?
-  end
+    def exists_tasklist
+      @tasklist = current_user.task_lists.find_by(id: params[:id])
+      redirect_to users_path, alert: '存在しないか、権限がありません。' if @tasklist.nil?
+    end
 end
