@@ -13,10 +13,13 @@
     </div>
     <hr class="panel-hr">
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-4">
         <%= button_status todo %>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-4">
+        <%= link_to "編集する", edit_task_list_todo_path(todo.task_list.id, todo.id), class: "btn btn-block btn-edit", remote: true %>
+      </div>
+      <div class="col-xs-4">
         <%= link_to "削除する", task_list_todo_path(todo.task_list.id, todo.id), method: :delete, class: "btn btn-block btn-danger", data: { confirm: "削除していいですか？"} %>
       </div>
     </div>

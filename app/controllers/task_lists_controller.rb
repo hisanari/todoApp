@@ -17,8 +17,7 @@ class TaskListsController < ApplicationController
   end
 
   # GET /user/task_lists/:id/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /user/task_lists/:id
   def update

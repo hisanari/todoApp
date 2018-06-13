@@ -1,0 +1,35 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_for todo, url:  task_list_todo_path, remote: true do |form| %>
+      <div class="modal-header">
+        <button type=button class="close" data-dismiss="modal" aria-label="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"><%= todo.item %>を編集する</h4>
+      </div>
+      <div class="modal-body">
+      <!-- エラーメッセージ -->
+      <% if todo.errors.any? %>
+        <div id="error_explanation">
+          <% todo.errors.full_messages.each do |message| %>
+          <strong><%= message %></strong>
+        </div>
+         <% end %>
+      <% end %>
+      <%= form.label :item, "やること" %>
+      <%= form.text_field :item, class: "form-control" %>
+      <%= form.label :todo_limit, "期限" %>
+      <%= form.date_field :todo_limit, class: "form-control" %>
+      <%= form.label :task_list_id, "やることファイルを移動する" %>
+      <%= form.collection_select :task_list_id, @user_tasklists, :id, :title, {}, class: "form-control" %>
+      </div>
+      <!-- modal-body -->
+      <div class="modal-footer">
+        <div class="form-group">
+        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+        <%= form.submit "変更する", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -20,6 +20,12 @@ class TodosController < ApplicationController
     end
   end
 
+  # GET /user/task_lists/:task_list_id/todos/:id/edit
+  def edit
+    @user_tasklists = current_user.task_lists
+    @todo = @tasklist.todos.find_by(id: params[:id])
+  end
+
   # DELETE /user/task_lists/:task_list_id/todos/:id
   def destroy
     Todo.find_by(id: params[:id]).destroy
