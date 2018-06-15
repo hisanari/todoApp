@@ -5,7 +5,7 @@
         <button type=button class="close" data-dismiss="modal" aria-label="close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title"><%= todo.item %>を編集する</h4>
+        <h4 class="modal-title">やることを編集する</h4>
       </div>
       <div class="modal-body">
       <!-- エラーメッセージ -->
@@ -13,14 +13,14 @@
         <div id="error_explanation">
           <% todo.errors.full_messages.each do |message| %>
           <strong><%= message %></strong>
-        </div>
          <% end %>
+        </div>
       <% end %>
       <%= form.label :item, "やること" %>
       <%= form.text_field :item, class: "form-control" %>
       <%= form.label :todo_limit, "期限" %>
       <%= form.date_field :todo_limit, class: "form-control" %>
-      <%= form.label :task_list_id, "やることファイルを移動する" %>
+      <%= form.label :task_list_id, "ファイルを移動する" %>
       <%= form.collection_select :task_list_id, @user_tasklists, :id, :title, {}, class: "form-control" %>
       </div>
       <!-- modal-body -->
