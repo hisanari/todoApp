@@ -30,6 +30,8 @@ class TodosController < ApplicationController
   def update
     @todo = @tasklist.todos.find_by(id: params[:id])
     respond_to do |format|
+      # 変更内容がある場合ステータスを未完了にする
+      @todo.status = 0 unless @todo.params_equal?(todo_params)
       if @todo.update(todo_params)
         format.html { redirect_to task_list_todos_path, notice: '変更されました。' }
       else
