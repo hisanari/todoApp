@@ -118,18 +118,18 @@ class TodosTest < ActionDispatch::IntegrationTest
     end
     # タスクリストファイルが移動できている
     visit task_list_todos_path(@kaji)
-    assert_not page.has_content? @english.item
+    assert_not page.has_content? @math.item
     visit task_list_todos_path(@shukudai)
 
-    within find("#todo-#{@english.id}") do
+    within find("#todo-#{@math.id}") do
       find_link('編集する').click
     end
-    within find("#edit_todo_#{@english.id}") do
+    within find("#edit_todo_#{@math.id}") do
       find("option[value='#{@kaji.id}']").select_option
       find('input[name=commit]').click
     end
     visit task_list_todos_path(@kaji)
-    page.has_content? @english.item
+    page.has_content? @math.item
   end
 
   test 'todoの削除' do
