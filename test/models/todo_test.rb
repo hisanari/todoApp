@@ -28,4 +28,10 @@ class TodoTest < ActiveSupport::TestCase
     @todo.item = 'a' * 21
     assert_not @todo.valid?
   end
+
+  test '渡された値が同じならTrue,そうでないならFalse' do
+    todo_limit = Time.now.tomorrow
+    todo_params = { item: '数学', todo_limit: todo_limit.strftime('%Y-%m-%d') }
+    assert @todo.params_equal?(todo_params)
+  end
 end
