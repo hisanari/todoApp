@@ -12,4 +12,8 @@ class Todo < ApplicationRecord
   scope :search_expired, -> { where(status: 2) }
   scope :user_todos, ->(ids) { where(task_list_id: ids) }
   scope :latest_todos, -> { order(created_at: :desc).last(5) }
+
+  def params_equal?(todo_params)
+    item == todo_params[:item] && todo_limit == Date.strptime(todo_params[:todo_limit])
+  end
 end

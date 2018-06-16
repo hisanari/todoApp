@@ -20,6 +20,27 @@ class TodosController < ApplicationController
     end
   end
 
+  # GET /user/task_lists/:task_list_id/todos/:id/edit
+  def edit
+    @user_tasklists = current_user.task_lists
+    @todo = @tasklist.todos.find_by(id: params[:id])
+  end
+
+  # /user/task_lists/:task_list_id/todos/:id
+  def update
+    @todo = @tasklist.todos.find_by(id: params[:id])
+    respond_to do |format|
+      # 変更内容がある場合ステータスを未完了にする
+      @todo.status = 0 unless @todo.params_equal?(todo_params)
+      if @todo.update(todo_params)
+        format.html { redirect_to task_list_todos_path, notice: '変更されました。' }
+      else
+        @user_tasklists = current_user.task_lists
+        format.js {}
+      end
+    end
+  end
+
   # DELETE /user/task_lists/:task_list_id/todos/:id
   def destroy
     Todo.find_by(id: params[:id]).destroy
@@ -29,7 +50,7 @@ class TodosController < ApplicationController
   private
 
     def todo_params
-      params.require(:todo).permit(:item, :todo_limit)
+      params.require(:todo).permit(:item, :todo_limit, :task_list_id)
     end
 
     def exists_tasklist

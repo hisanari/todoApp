@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   scope 'user' do
     resources :task_lists, only: %i[create edit update destroy] do
-      resources :todos, only: %i[index create destroy]
+      resources :todos, only: %i[index create edit update destroy]
       resources :status, only: %i[update], module: 'todos'
     end
 
