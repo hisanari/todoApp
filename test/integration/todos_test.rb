@@ -6,6 +6,7 @@ class TodosTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:john)
     @shukudai = task_lists(:shukudai)
+    @kaji = task_lists(:kaji)
     @math = todos(:math)
     @english = todos(:english)
     # ログインする
@@ -65,6 +66,70 @@ class TodosTest < ActionDispatch::IntegrationTest
     within find("#todo-#{@english.id}") do
       find_button('期限切れ').has_css?('disabled')
     end
+  end
+
+  test 'todoの編集' do
+    Capybara.default_driver = :poltergeist
+    visit task_list_todos_path(@shukudai)
+    within find("#todo-#{@math.id}") do
+      find_link('編集する').click
+    end
+    # バリデーションが表示される
+    assert page.has_content? 'やることを編集する'
+    within find("#edit_todo_#{@math.id}") do
+      fill_in 'todo_item', with: ''
+      find('input[name=commit]').click
+      assert page.has_content? 'やることが入力されていません。'
+      fill_in 'todo_todo_limit',	with: ''
+      find('input[name=commit]').click
+      assert page.has_content? '期限が入力されていません。'
+      # 編集ができる
+      fill_in 'todo_item', with: 'すうがく'
+      fill_in 'todo_todo_limit', with: Time.now.strftime('%Y-%m-%d')
+      find('input[name=commit]').click
+    end
+    # flashが表示されて、変更内容が反映されている
+    assert page.has_content? '変更されました。'
+    assert page.has_content? 'すうがく'
+    # 完了済みのTodoを編集、内容に変更がある場合は未完了にステータスが反映されている
+    within find("#todo-#{@math.id}") do
+      click_link '完了にする'
+      page.has_content? '完了済'
+      find_link('編集する').click
+    end
+    within find("#edit_todo_#{@math.id}") do
+      fill_in 'todo_item', with: '数学'
+      find('input[name=commit]').click
+    end
+    within find("#todo-#{@math.id}") do
+      page.has_content? '完了にする'
+    end
+    # 完了済みのTodoを編集、変更がない場合は、todoステータスは未完了のまま
+    within find("#todo-#{@math.id}") do
+      click_link '完了にする'
+      page.has_content? '完了済'
+      find_link('編集する').click
+    end
+    within find("#edit_todo_#{@math.id}") do
+      find('input[name=commit]').click
+    end
+    within find("#todo-#{@math.id}") do
+      page.has_content? '完了済'
+    end
+    # タスクリストファイルが移動できている
+    visit task_list_todos_path(@kaji)
+    assert_not page.has_content? @english.item
+    visit task_list_todos_path(@shukudai)
+
+    within find("#todo-#{@english.id}") do
+      find_link('編集する').click
+    end
+    within find("#edit_todo_#{@english.id}") do
+      find("option[value='#{@kaji.id}']").select_option
+      find('input[name=commit]').click
+    end
+    visit task_list_todos_path(@kaji)
+    page.has_content? @english.item
   end
 
   test 'todoの削除' do
