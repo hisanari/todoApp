@@ -1,2 +1,8 @@
 $("#edit-form").html( "<%= j(render 'form', todo: @todo) %>");
 $("#edit-form").modal("show");
+$('.datepicker').pickadate({
+    min: Date.now,
+    format: 'yyyy-mm-dd',
+    formatSubmit: 'yyyy-mm-dd',
+    hiddenName: true
+});

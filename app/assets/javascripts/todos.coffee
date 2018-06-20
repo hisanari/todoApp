@@ -5,5 +5,7 @@ $ ->
   $('.datepicker').pickadate(
       min: Date.now,
       format: 'yyyy-mm-dd',
+      formatSubmit: 'yyyy-mm-dd',
       hiddenName: true
   )
+

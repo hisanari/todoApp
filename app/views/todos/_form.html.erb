@@ -19,7 +19,7 @@
       <%= form.label :item, "やること" %>
       <%= form.text_field :item, class: "form-control" %>
       <%= form.label :todo_limit, "期限" %>
-      <%= form.date_field :todo_limit, class: "form-control" %>
+      <%= form.text_field :todo_limit, value: Time.now.strftime("%Y-%m-%d"), class: "form-control datepicker" %>
       <%= form.label :task_list_id, "ファイルを移動する" %>
       <%= form.collection_select :task_list_id, @user_tasklists, :id, :title, {}, class: "form-control" %>
       </div>
