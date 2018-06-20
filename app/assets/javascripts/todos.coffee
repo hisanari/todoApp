@@ -3,9 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   $('.datepicker').pickadate(
-      min: Date.now,
-      format: 'yyyy-mm-dd',
-      formatSubmit: 'yyyy-mm-dd',
-      hiddenName: true
+    today: '',
+    clear: '',
+    min: Date.now,
+    format: 'yyyy-mm-dd',
+    formatSubmit: 'yyyy-mm-dd',
+    hiddenName: true
   )
 
