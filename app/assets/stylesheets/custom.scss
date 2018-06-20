@@ -168,6 +168,11 @@ aside {
     }
   }
 }
+@media screen and (max-width:320px) {
+  .btn {
+    font-size: 11px;
+  }
+}
 
 @media screen and (max-width:992px) {
   aside {
@@ -182,6 +187,8 @@ aside {
     }
   }
 }
+
+
 
 // 右カラム
 .extra_info {
